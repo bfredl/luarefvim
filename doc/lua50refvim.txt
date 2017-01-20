@@ -16,94 +16,94 @@
                       Copyright (c) 2003 Tecgraf, PUC-Rio.
 
 
-                 See |lrv-doc| for information on this manual.
-                 See |lrv-copyright| for copyright and licenses.
+                 See |lrv50-doc| for information on this manual.
+                 See |lrv50-copyright| for copyright and licenses.
 
 
                                    CONTENTS
                                  ============
 
-           1   INTRODUCTION........................|lrv-intro|
+           1   INTRODUCTION........................|lrv50-intro|
 
-           2   THE LANGUAGE........................|lrv-language|
-           2.1   Lexical Conventions...............|lrv-langLexConv|
-           2.2   Values and Types..................|lrv-langValTypes|
-           2.2.1   Coercion........................|lrv-langCoercion|
-           2.3   Variables.........................|lrv-langVariables|
-           2.4   Statements........................|lrv-langStats|
-           2.4.1   Chunks..........................|lrv-langChunks|
-           2.4.2   Blocks..........................|lrv-langBlocks|
-           2.4.3   Assignment......................|lrv-langAssign|
-           2.4.4   Control Structures..............|lrv-langContStructs|
-           2.4.5   For Statement...................|lrv-langForStat|
-           2.4.6   Function Calls as Statements....|lrv-langFuncStat|
-           2.4.7   Local Declarations..............|lrv-langLocalDec|
-           2.5   Expressions.......................|lrv-langExpressions|
-           2.5.1   Arithmetic Operators............|lrv-langArithOp|
-           2.5.2   Relational Operators............|lrv-langRelOp|
-           2.5.3   Logical Operators...............|lrv-langLogOp|
-           2.5.4   Concatenation...................|lrv-langConcat|
-           2.5.5   Precedence......................|lrv-langPrec|
-           2.5.6   Table Constructors..............|lrv-langTableConst|
-           2.5.7   Function Calls..................|lrv-langFuncCalls|
-           2.5.8   Function Definitions............|lrv-langFuncDefs|
-           2.6   Visibility Rules..................|lrv-langVisibRules|
-           2.7   Error Handling....................|lrv-langError|
-           2.8   Metatables........................|lrv-langMetatables|
-           2.9   Garbage Collection................|lrv-langGC|
-           2.9.1   Garbage-Collection Metamethods..|lrv-langGCMeta|
-           2.9.2   Weak Tables.....................|lrv-langWeaktables|
-           2.10   Coroutines.......................|lrv-langCoro|
+           2   THE LANGUAGE........................|lrv50-language|
+           2.1   Lexical Conventions...............|lrv50-langLexConv|
+           2.2   Values and Types..................|lrv50-langValTypes|
+           2.2.1   Coercion........................|lrv50-langCoercion|
+           2.3   Variables.........................|lrv50-langVariables|
+           2.4   Statements........................|lrv50-langStats|
+           2.4.1   Chunks..........................|lrv50-langChunks|
+           2.4.2   Blocks..........................|lrv50-langBlocks|
+           2.4.3   Assignment......................|lrv50-langAssign|
+           2.4.4   Control Structures..............|lrv50-langContStructs|
+           2.4.5   For Statement...................|lrv50-langForStat|
+           2.4.6   Function Calls as Statements....|lrv50-langFuncStat|
+           2.4.7   Local Declarations..............|lrv50-langLocalDec|
+           2.5   Expressions.......................|lrv50-langExpressions|
+           2.5.1   Arithmetic Operators............|lrv50-langArithOp|
+           2.5.2   Relational Operators............|lrv50-langRelOp|
+           2.5.3   Logical Operators...............|lrv50-langLogOp|
+           2.5.4   Concatenation...................|lrv50-langConcat|
+           2.5.5   Precedence......................|lrv50-langPrec|
+           2.5.6   Table Constructors..............|lrv50-langTableConst|
+           2.5.7   Function Calls..................|lrv50-langFuncCalls|
+           2.5.8   Function Definitions............|lrv50-langFuncDefs|
+           2.6   Visibility Rules..................|lrv50-langVisibRules|
+           2.7   Error Handling....................|lrv50-langError|
+           2.8   Metatables........................|lrv50-langMetatables|
+           2.9   Garbage Collection................|lrv50-langGC|
+           2.9.1   Garbage-Collection Metamethods..|lrv50-langGCMeta|
+           2.9.2   Weak Tables.....................|lrv50-langWeaktables|
+           2.10   Coroutines.......................|lrv50-langCoro|
 
-           3   THE APPLICATION PROGRAM INTERFACE...|lrv-API|
-           3.1   States............................|lrv-apiStates|
-           3.2   The Stack and Indices.............|lrv-apiStack|
-           3.3   Stack Manipulation................|lrv-apiStackInd|
-           3.4   Querying the Stack................|lrv-apiStackQue|
-           3.5   Getting Values from the Stack.....|lrv-apiStackPop|
-           3.6   Pushing Values onto the Stack.....|lrv-apiStackPush|
-           3.7   Controlling Garbage Collection....|lrv-apiGC|
-           3.8   Userdata..........................|lrv-apiUserdata|
-           3.9   Metatables........................|lrv-apiMetatables|
-           3.10   Loading Lua Chunks...............|lrv-apiChunks|
-           3.11   Manipulating Tables..............|lrv-apiTables|
-           3.12   Manipulating Environments........|lrv-apiEnvirons|
-           3.13   Using Tables as Arrays...........|lrv-apiTableAsArr|
-           3.14   Calling Functions................|lrv-apiFuncCalls|
-           3.15   Protected Calls..................|lrv-apiProtCalls|
-           3.16   Defining C Functions.............|lrv-apiCFuncDef|
-           3.17   Defining C Closures..............|lrv-apiCCloseDef|
-           3.18   Registry.........................|lrv-apiRegistry|
-           3.19   Error Handling in C..............|lrv-apiError|
-           3.20   Threads..........................|lrv-apiThreads|
+           3   THE APPLICATION PROGRAM INTERFACE...|lrv50-API|
+           3.1   States............................|lrv50-apiStates|
+           3.2   The Stack and Indices.............|lrv50-apiStack|
+           3.3   Stack Manipulation................|lrv50-apiStackInd|
+           3.4   Querying the Stack................|lrv50-apiStackQue|
+           3.5   Getting Values from the Stack.....|lrv50-apiStackPop|
+           3.6   Pushing Values onto the Stack.....|lrv50-apiStackPush|
+           3.7   Controlling Garbage Collection....|lrv50-apiGC|
+           3.8   Userdata..........................|lrv50-apiUserdata|
+           3.9   Metatables........................|lrv50-apiMetatables|
+           3.10   Loading Lua Chunks...............|lrv50-apiChunks|
+           3.11   Manipulating Tables..............|lrv50-apiTables|
+           3.12   Manipulating Environments........|lrv50-apiEnvirons|
+           3.13   Using Tables as Arrays...........|lrv50-apiTableAsArr|
+           3.14   Calling Functions................|lrv50-apiFuncCalls|
+           3.15   Protected Calls..................|lrv50-apiProtCalls|
+           3.16   Defining C Functions.............|lrv50-apiCFuncDef|
+           3.17   Defining C Closures..............|lrv50-apiCCloseDef|
+           3.18   Registry.........................|lrv50-apiRegistry|
+           3.19   Error Handling in C..............|lrv50-apiError|
+           3.20   Threads..........................|lrv50-apiThreads|
 
-           4   THE DEBUG INTERFACE.................|lrv-Debug|
-           4.1   Stack and Function Information....|lrv-debugInfo|
+           4   THE DEBUG INTERFACE.................|lrv50-Debug|
+           4.1   Stack and Function Information....|lrv50-debugInfo|
            4.2   Manipulating Local Variables
-                    and Upvalues...................|lrv-debugValues|
-           4.3   Hooks.............................|lrv-debugHooks|
+                    and Upvalues...................|lrv50-debugValues|
+           4.3   Hooks.............................|lrv50-debugHooks|
 
-           5   STANDARD LIBRARIES..................|lrv-Lib|
-           5.1   Basic Functions...................|lrv-libBasic|
-           5.2   Coroutine Manipulation............|lrv-libCoro|
-           5.3   String Manipulation...............|lrv-libString|
-           5.4   Table Manipulation................|lrv-libTable|
-           5.5   Mathematical Functions............|lrv-libMath|
-           5.6   Input and Output Facilities.......|lrv-libIO|
-           5.7   Operating System Facilities.......|lrv-libOS|
-           5.8   The Reflexive Debug Interface.....|lrv-libDebug|
+           5   STANDARD LIBRARIES..................|lrv50-Lib|
+           5.1   Basic Functions...................|lrv50-libBasic|
+           5.2   Coroutine Manipulation............|lrv50-libCoro|
+           5.3   String Manipulation...............|lrv50-libString|
+           5.4   Table Manipulation................|lrv50-libTable|
+           5.5   Mathematical Functions............|lrv50-libMath|
+           5.6   Input and Output Facilities.......|lrv50-libIO|
+           5.7   Operating System Facilities.......|lrv50-libOS|
+           5.8   The Reflexive Debug Interface.....|lrv50-libDebug|
 
-           6   LUA STAND-ALONE.....................|lrv-LuaSA|
+           6   LUA STAND-ALONE.....................|lrv50-LuaSA|
 
-           A   BIBLIOGRAPHY........................|lrv-bibliography|
-           B   COPYRIGHT & LICENSES................|lrv-copyright|
-           C   LUAREFVIM DOC.......................|lrv-doc|
-           C.1  Installation.......................|lrv-docInstall|
-           C.2  Usage..............................|lrv-docUsage|
+           A   BIBLIOGRAPHY........................|lrv50-bibliography|
+           B   COPYRIGHT & LICENSES................|lrv50-copyright|
+           C   LUAREFVIM DOC.......................|lrv50-doc|
+           C.1  Installation.......................|lrv50-docInstall|
+           C.2  Usage..............................|lrv50-docUsage|
 
 
 ==============================================================================
-1  INTRODUCTION                                                    *lrv-intro*
+1  INTRODUCTION                                                    *lrv50-intro*
 ==============================================================================
 
 Lua is an extension programming language designed to support general
@@ -131,13 +131,13 @@ available at Lua's official web site,$www.lua.org$.
 
 Like any other reference manual, this document is dry in places. For a
 discussion of the decisions behind the design of Lua, see references at
-|lrv-bibliography|.
+|lrv50-bibliography|.
 
 Lua means "moon" in Portuguese and is pronounced LOO-ah.
 
 
 ==============================================================================
-2  THE LANGUAGE                                                 *lrv-language*
+2  THE LANGUAGE                                                 *lrv50-language*
 ==============================================================================
 
 This section describes the lexis, the syntax, and the semantics of Lua. In
@@ -151,10 +151,10 @@ terminal symbols are shown in$typewriter$color, enclosed in single quotes.
 
 
 ==============================================================================
-2.1  Lexical Conventions                                     *lrv-langLexConv*
+2.1  Lexical Conventions                                     *lrv50-langLexConv*
 
 
-                                                             *lrv-identifiers*
+                                                             *lrv50-identifiers*
 @Identifiers@in Lua can be any string of letters, digits, and underscores, not
 beginning with a digit. This coincides with the definition of identifiers in
 most languages. (The definition of letter depends on the current locale: any
@@ -180,7 +180,7 @@ The following strings denote other tokens:
        (     )     {     }     [     ]
        ;     :     ,     .     ..    ...
 >
-                                                                 *lrv-literal*
+                                                                 *lrv50-literal*
 @Literal strings@can be delimited by matching single or double quotes, and can
 contain the following C-like escape sequences:
 
@@ -220,13 +220,13 @@ and$`1'$is coded as 49), the four literals below denote the same string:
 	       alo
 	       123"]]
 >
-                                                            *lrv-numconstants*
+                                                            *lrv50-numconstants*
 @Numerical constants@may be written with an optional decimal part and an
 optional decimal exponent. Examples of valid numerical constants are
 >
 	 3     3.0     3.1416  314.16e-2   0.31416E1
 >
-                                                                *lrv-comment*
+                                                                *lrv50-comment*
 @Comments@start anywhere outside a string with a double hyphen ($--$). If the
 text immediately after$--$is different from$[[$, the comment is 
 a@short comment@, which runs until the end of the line. Otherwise, it is 
@@ -235,17 +235,17 @@ run for several lines and may contain nested$[[$...$]]$pairs.
 
 For convenience, the first line of a chunk is skipped if it starts with$#$.
 This facility allows the use of Lua as a script interpreter in Unix systems
-(see |lrv-LuaSA|).
+(see |lrv50-LuaSA|).
 
 ==============================================================================
-2.2  Values and Types                                       *lrv-langValTypes*
+2.2  Values and Types                                       *lrv50-langValTypes*
 
 
 Lua is a@dynamically typed language@. That means that variables do not have
 types; only values do. There are no type definitions in the language. All
 values carry their own type.
 
-                    *lrv-nil* *lrv-true* *lrv-false* *lrv-number* *lrv-string*
+                    *lrv50-nil* *lrv50-true* *lrv50-false* *lrv50-number* *lrv50-string*
 There are eight basic types in Lua:@nil@,@boolean@,@number@,@string@,
 @function@,@userdata@,@thread@, and@table@.@Nil@is the type of the value#nil#,
 whose main property is to be different from any other value; usually it
@@ -256,27 +256,27 @@ floating-point) numbers. (It is easy to build Lua interpreters that use other
 internal representations for numbers, such as single-precision float or long
 integers.)@String@represents arrays of characters. Lua is 8-bit clean: Strings
 may contain any 8-bit character, including embedded zeros ($'\0'$) (see
-|lrv-literal|).
+|lrv50-literal|).
 
 Functions are@first-class values@in Lua. That means that functions can be
 stored in variables, passed as arguments to other functions, and returned as
 results. Lua can call (and manipulate) functions written in Lua and functions
-written in C (see |lrv-langFuncCalls|).
+written in C (see |lrv50-langFuncCalls|).
 
-                                                            *lrv-userdatatype*
+                                                            *lrv50-userdatatype*
 The type@userdata@is provided to allow arbitrary C data to be stored in Lua
 variables. This type corresponds to a block of raw memory and has no
 pre-defined operations in Lua, except assignment and identity test. However,
 by using@metatables@, the programmer can define operations for userdata values
-(see |lrv-langMetatables|). Userdata values cannot be created or modified in
+(see |lrv50-langMetatables|). Userdata values cannot be created or modified in
 Lua, only through the C API. This guarantees the integrity of data owned by
 the host program.
 
-                                                                  *lrv-thread*
+                                                                  *lrv50-thread*
 The type@thread@represents independent threads of execution and it is used to
-implement coroutines (see |lrv-coroutine|).
+implement coroutines (see |lrv50-coroutine|).
 
-                                                                   *lrv-table*
+                                                                   *lrv50-table*
 The type@table@implements associative arrays, that is, arrays that can be
 indexed not only with numbers, but with any value (except#nil#). Moreover,
 tables can be@heterogeneous@, that is, they can contain values of all types
@@ -285,11 +285,11 @@ be used to represent ordinary arrays, symbol tables, sets, records, graphs,
 trees, etc. To represent records, Lua uses the field name as an index. The
 language supports this representation by providing$a.name$as syntactic sugar
 for$a["name"]$. There are several convenient ways to create tables in Lua (see
-|lrv-langTableConst|).
+|lrv50-langTableConst|).
 
 Like indices, the value of a table field can be of any type (except#nil#). In
 particular, because functions are first class values, table fields may contain
-functions. Thus tables may also carry@methods@(see |lrv-langFuncDefs|).
+functions. Thus tables may also carry@methods@(see |lrv50-langFuncDefs|).
 
 Tables, functions, and userdata values are@objects@: variables do not
 actually@contain@these values, only@references@to them. Assignment, parameter
@@ -297,11 +297,11 @@ passing, and function returns always manipulate references to such values;
 these operations do not imply any kind of copy.
 
 The library function$type$returns a string describing the type of a given
-value (see |lrv-type|).
+value (see |lrv50-type|).
 
 
 ------------------------------------------------------------------------------
-2.2.1  Coercion                                             *lrv-langCoercion*
+2.2.1  Coercion                                             *lrv50-langCoercion*
 
 Lua provides automatic conversion between string and number values at run
 time. Any arithmetic operation applied to a string tries to convert that
@@ -309,11 +309,11 @@ string to a number, following the usual rules. Conversely, whenever a number
 is used where a string is expected, the number is converted to a string, in a
 reasonable format. For complete control of how numbers are converted to
 strings, use the$format$function from the string library (see
-|lrv-string.format|).
+|lrv50-string.format|).
 
 
 ==============================================================================
-2.3  Variables                                             *lrv-langVariables*
+2.3  Variables                                             *lrv50-langVariables*
 
 
 Variables are places that store values.
@@ -327,9 +327,9 @@ parameter of a function, which is a particular form of local variable):
 	 var ::= Name
 >
 Variables are assumed to be global unless explicitly declared local (see
-|lrv-langLocalDec|). Local variables are@lexically scoped@: local variables
+|lrv50-langLocalDec|). Local variables are@lexically scoped@: local variables
 can be freely accessed by functions defined inside their scope (see
-|lrv-langVisibRules|).
+|lrv50-langVisibRules|).
 
 Before the first assignment to a variable, its value is#nil#.
 
@@ -340,7 +340,7 @@ Square brackets are used to index a table:
 The first expression (@prefixexp@) should result in a table value; the second
 expression (@exp@) identifies a specific entry inside that table. The
 expression denoting the table to be indexed has a restricted syntax; see
-|lrv-langExpressions| for details.
+|lrv50-langExpressions| for details.
 
 The syntax$var.NAME$is just syntactic sugar for$var["NAME"]$:
 
@@ -348,7 +348,7 @@ The syntax$var.NAME$is just syntactic sugar for$var["NAME"]$:
 
 The meaning of accesses to global variables and table fields can be changed
 via metatables. An access to an indexed variable$t[i]$is equivalent to a
-call$gettable_event(t,i)$. (See |lrv-langMetatables| for a complete
+call$gettable_event(t,i)$. (See |lrv50-langMetatables| for a complete
 description of the$gettable_event$function. This function is not defined or
 callable in Lua. We use it here only for explanatory purposes.)
 
@@ -359,8 +359,8 @@ Each function written in Lua (a@Lua function@) has its own reference to an
 environment, so that all global variables in that function will refer to that
 environment table. When a function is created, it inherits the environment
 from the function that created it. To change or get the environment table of a
-Lua function, you call$setfenv$(see |lrv-setenv|) or$getfenv$(see
-|lrv-getenv|).
+Lua function, you call$setfenv$(see |lrv50-setenv|) or$getfenv$(see
+|lrv50-getenv|).
 
 An access to a global variable$x$is equivalent to$_env.x$, which in turn is
 equivalent to
@@ -372,7 +372,7 @@ not defined in Lua. We use it here only for explanatory purposes.)
 
 
 ==============================================================================
-2.4  Statements                                                *lrv-langStats*
+2.4  Statements                                                *lrv50-langStats*
 
 
 Lua supports an almost conventional set of statements, similar to those in
@@ -381,7 +381,7 @@ calls, table constructors, and variable declarations.
 
 
 ------------------------------------------------------------------------------
-2.4.1  Chunks                                     *lrv-chunk* *lrv-langChunks*
+2.4.1  Chunks                                     *lrv50-chunk* *lrv50-langChunks*
 
 
 The unit of execution of Lua is called a@chunk@. A chunk is simply a sequence
@@ -391,7 +391,7 @@ optionally followed by a semicolon:
 	$chunk ::= {stat [$#`;'#$]}$
 
 Lua handles a chunk as the body of an anonymous function (see
-|lrv-langFuncDefs|). As such, chunks can define local variables and return
+|lrv50-langFuncDefs|). As such, chunks can define local variables and return
 values.
 
 A chunk may be stored in a file or in a string inside the host program. When a
@@ -405,25 +405,25 @@ automatically detects the file type and acts accordingly.
 
 
 ------------------------------------------------------------------------------
-2.4.2  Blocks                                     *lrv-block* *lrv-langBlocks*
+2.4.2  Blocks                                     *lrv50-block* *lrv50-langBlocks*
 
 
 A block is a list of statements; syntactically, a block is equal to a chunk:
 >
 	 block ::= chunk
 >
-                                                            *lrv-do* *lrv-end*
+                                                            *lrv50-do* *lrv50-end*
 A block may be explicitly delimited to produce a single statement:
 
 	$stat ::=$#do#$block$#end#
 
 Explicit blocks are useful to control the scope of variable declarations.
 Explicit blocks are also sometimes used to add a#return#or#break#statement in
-the middle of another block (see |lrv-langContStructs|).
+the middle of another block (see |lrv50-langContStructs|).
 
 
 ------------------------------------------------------------------------------
-2.4.3  Assignment                                             *lrv-langAssign*
+2.4.3  Assignment                                             *lrv50-langAssign*
 
 
 Lua allows multiple assignment. Therefore, the syntax for assignment defines a
@@ -434,7 +434,7 @@ side. The elements in both lists are separated by commas:
 	$varlist1 ::= var {$#`,'#$var }$
 	$explist1 ::= exp {$#`,'#$exp }$
 
-Expressions are discussed in |lrv-langExpressions|.
+Expressions are discussed in |lrv50-langExpressions|.
 
 Before the assignment, the list of values is@adjusted@to the length of the
 list of variables. If there are more values than needed, the excess values are
@@ -442,7 +442,7 @@ thrown away. If there are fewer values than needed, the list is extended with
 as many#nil#'s as needed. If the list of expressions ends with a function
 call, then all values returned by that function call enter in the list of
 values, before the adjustment (except when the call is enclosed in
-parentheses; see |lrv-langExpressions|).
+parentheses; see |lrv50-langExpressions|).
 
 The assignment statement first evaluates all its expressions and only then are
 the assignments performed. Thus the code
@@ -459,7 +459,7 @@ exchanges the values of$x$and$y$.
 
 The meaning of assignments to global variables and table fields can be changed
 via metatables. An assignment to an indexed variable$t[i] = val$is equivalent
-to$settable_event(t,i,val)$. (See |lrv-langMetatables| for a complete
+to$settable_event(t,i,val)$. (See |lrv50-langMetatables| for a complete
 description of the$settable_event$function. This function is not defined or
 callable in Lua. We use it here only for explanatory purposes.)
 
@@ -473,10 +473,10 @@ not defined in Lua. We use it here only for explanatory purposes.)
 
 
 ------------------------------------------------------------------------------
-2.4.4  Control Structures                                *lrv-langContStructs*
+2.4.4  Control Structures                                *lrv50-langContStructs*
 
-                                   *lrv-if* *lrv-then* *lrv-else* *lrv-elseif*
-                                          *lrv-while* *lrv-repeat* *lrv-until*
+                                   *lrv50-if* *lrv50-then* *lrv50-else* *lrv50-elseif*
+                                          *lrv50-while* *lrv50-repeat* *lrv50-until*
 The control structures#if#,#while#, and#repeat#have the usual meaning and
 familiar syntax:
 
@@ -485,21 +485,21 @@ familiar syntax:
 	$stat ::=$#if#$exp$#then#$block {$#elseif#$exp$#then#$block }$
 				$[$#else#$block ]$#end#
 
-Lua also has a#for#statement, in two flavors (see |lrv-langForStat|).
+Lua also has a#for#statement, in two flavors (see |lrv50-langForStat|).
 
 The condition expression@exp@of a control structure may return any value.
 Both#false#and#nil#are considered false. All values different
 from#nil#and#false#are considered true (in particular, the number 0 and the
 empty string are also true).
 
-                                                                  *lrv-return*
+                                                                  *lrv50-return*
 The#return#statement is used to return values from a function or from a
 chunk. Functions and chunks may return more than one value, so the syntax for
 the#return#statement is
 
 	$stat ::=$#return#$[explist1]$
 
-                                                                   *lrv-break*
+                                                                   *lrv50-break*
 The#break#statement can be used to terminate the execution of a#while#,
 #repeat#, or#for#loop, skipping to the next statement after the loop:
 
@@ -516,7 +516,7 @@ only used during debugging.
 
 
 ------------------------------------------------------------------------------
-2.4.5  For Statement                               *lrv-for* *lrv-langForStat*
+2.4.5  For Statement                               *lrv50-for* *lrv50-langForStat*
 
 
 The#for#statement has two forms: one numeric and one generic.
@@ -557,7 +557,7 @@ Note the following:
      variable$var$, then assign it to another variable before breaking or
      exiting the loop.
 
-                                                                      *lrv-in*
+                                                                      *lrv50-in*
 The generic#for#statement works over functions, called@iterators@. For each
 iteration, it calls its iterator function to produce a new value, stopping
 when the new value is#nil#. The generic#for#loop has the following syntax:
@@ -594,7 +594,7 @@ Note the following:
 
 
 ------------------------------------------------------------------------------
-2.4.6  Function Calls as Statements                         *lrv-langFuncStat*
+2.4.6  Function Calls as Statements                         *lrv50-langFuncStat*
 
 
 To allow possible side-effects, function calls can be executed as statements:
@@ -602,11 +602,11 @@ To allow possible side-effects, function calls can be executed as statements:
 	stat ::= functioncall
 >
 In this case, all returned values are thrown away. Function calls are
-explained in |lrv-langFuncCalls|.
+explained in |lrv50-langFuncCalls|.
 
 
 ------------------------------------------------------------------------------
-2.4.7  Local Declarations                       *lrv-local* *lrv-langLocalDec*
+2.4.7  Local Declarations                       *lrv50-local* *lrv50-langLocalDec*
 
 
 Local variables may be declared anywhere inside a block. The declaration may
@@ -616,19 +616,19 @@ include an initial assignment:
 	$namelist ::= Name {$#`,'#$Name }$
 
 If present, an initial assignment has the same semantics of a multiple
-assignment (see |lrv-langAssign|). Otherwise, all variables are initialized
+assignment (see |lrv50-langAssign|). Otherwise, all variables are initialized
 with#nil#.
 
-A chunk is also a block (see |lrv-langChunks|), so local variables can be
+A chunk is also a block (see |lrv50-langChunks|), so local variables can be
 declared in a chunk outside any explicit block. Such local variables die when
 the chunk ends.
 
 The visibility rules for local variables are explained in
-|lrv-langVisibRules|.
+|lrv50-langVisibRules|.
 
 
 ==============================================================================
-2.5  Expressions                                         *lrv-langExpressions*
+2.5  Expressions                                         *lrv50-langExpressions*
 
 
 The basic expressions in Lua are the following:
@@ -641,10 +641,10 @@ The basic expressions in Lua are the following:
 	$exp ::= tableconstructor$
 	$prefixexp ::= var | functioncall |$#`('#$exp$#`)'#
 
-Numbers and literal strings are explained in |lrv-langLexConv|; variables are
-explained in |lrv-langVariables|; function definitions are explained in
-|lrv-langFuncDefs|; function calls are explained in |lrv-langFuncCalls|;
-table constructors are explained in |lrv-langTableConst|.
+Numbers and literal strings are explained in |lrv50-langLexConv|; variables are
+explained in |lrv50-langVariables|; function definitions are explained in
+|lrv50-langFuncDefs|; function calls are explained in |lrv50-langFuncCalls|;
+table constructors are explained in |lrv50-langTableConst|.
 
 An expression enclosed in parentheses always results in only one value. Thus,
 $(f(x,y,z))$is always a single value, even if$f$returns several values.
@@ -656,22 +656,22 @@ and logical operators, all of which are explained below.
 
 
 ------------------------------------------------------------------------------
-2.5.1  Arithmetic Operators                                  *lrv-langArithOp*
+2.5.1  Arithmetic Operators                                  *lrv50-langArithOp*
 
 
 Lua supports the usual arithmetic operators: the binary$+$(addition),
 $-$(subtraction),$*$(multiplication),$/$(division), and$^$(exponentiation);
 and unary$-$(negation). If the operands are numbers, or strings that can be
-converted to numbers (see |lrv-langCoercion|), then all operations except
+converted to numbers (see |lrv50-langCoercion|), then all operations except
 exponentiation have the usual meaning. Exponentiation calls a global
 function$__pow$; otherwise, an appropriate metamethod is called (see
-|lrv-langMetatables|). The standard mathematical library defines
+|lrv50-langMetatables|). The standard mathematical library defines
 function$__pow$, giving the expected meaning to exponentiation (see
-|lrv-libMath|).
+|lrv50-libMath|).
 
 
 ------------------------------------------------------------------------------
-2.5.2  Relational Operators                                    *lrv-langRelOp*
+2.5.2  Relational Operators                                    *lrv50-langRelOp*
 
 
 The relational operators in Lua are
@@ -689,9 +689,9 @@ create a new object (a table, userdata, or function), this new object is
 different from any previously existing object.
 
 You can change the way that Lua compares tables and userdata using the "eq"
-metamethod (see |lrv-langMetatables|).
+metamethod (see |lrv50-langMetatables|).
 
-The conversion rules of coercion |lrv-langCoercion|@do not@apply to equality
+The conversion rules of coercion |lrv50-langCoercion|@do not@apply to equality
 comparisons. Thus,$"0"==0$evaluates to#false#, and$t[0]$and$t["0"]$denote
 different entries in a table.
 
@@ -700,24 +700,24 @@ The operator$~=$is exactly the negation of equality ($==$).
 The order operators work as follows. If both arguments are numbers, then they
 are compared as such. Otherwise, if both arguments are strings, then their
 values are compared according to the current locale. Otherwise, Lua tries to
-call the "lt" or the "le" metamethod (see |lrv-langMetatables|).
+call the "lt" or the "le" metamethod (see |lrv50-langMetatables|).
 
 
 ------------------------------------------------------------------------------
-2.5.3  Logical Operators                                       *lrv-langLogOp*
+2.5.3  Logical Operators                                       *lrv50-langLogOp*
 
 
 The logical operators in Lua are
 >
        and   or    not
 >
-Like the control structures (see |lrv-langContStructs|), all logical operators
+Like the control structures (see |lrv50-langContStructs|), all logical operators
 consider both#false#and#nil#as false and anything else as true.
 
-                                                                     *lrv-not*
+                                                                     *lrv50-not*
 The operator#not#always returns#false#or#true#.
 
-                                                            *lrv-and* *lrv-or*
+                                                            *lrv50-and* *lrv50-or*
 The conjunction operator#and#returns its first argument if this value
 is#false#or#nil#; otherwise,#and#returns its second argument. The disjunction
 operator#or#returns its first argument if this value is different
@@ -735,17 +735,17 @@ evaluated only if necessary. For example,
 >
 
 ------------------------------------------------------------------------------
-2.5.4  Concatenation                                          *lrv-langConcat*
+2.5.4  Concatenation                                          *lrv50-langConcat*
 
 
 The string concatenation operator in Lua is denoted by two dots ($`..'$).
 If both operands are strings or numbers, then they are converted to strings
-according to the rules mentioned in |lrv-langCoercion|. Otherwise, the
-"concat" metamethod is called (see |lrv-langMetatables|).
+according to the rules mentioned in |lrv50-langCoercion|. Otherwise, the
+"concat" metamethod is called (see |lrv50-langMetatables|).
 
 
 ------------------------------------------------------------------------------
-2.5.5  Precedence                                               *lrv-langPrec*
+2.5.5  Precedence                                               *lrv50-langPrec*
 
 
 Operator precedence in Lua follows the table below, from lower to higher
@@ -766,7 +766,7 @@ associative. All other binary operators are left associative.
 
 
 ------------------------------------------------------------------------------
-2.5.6  Table Constructors                                 *lrv-langTableConst*
+2.5.6  Table Constructors                                 *lrv50-langTableConst*
 
 
 Table constructors are expressions that create tables. Every time a
@@ -803,15 +803,15 @@ is equivalent to
 >
 If the last field in the list has the form$exp$and the expression is a
 function call, then all values returned by the call enter the list
-consecutively (see |lrv-langFuncCalls|). To avoid this, enclose the function
-call in parentheses (see |lrv-langExpressions|).
+consecutively (see |lrv50-langFuncCalls|). To avoid this, enclose the function
+call in parentheses (see |lrv50-langExpressions|).
 
 The field list may have an optional trailing separator, as a convenience for
 machine-generated code.
 
 
 ------------------------------------------------------------------------------
-2.5.7  Function Calls                       *lrv-function* *lrv-langFuncCalls*
+2.5.7  Function Calls                       *lrv50-function* *lrv50-langFuncCalls*
 
 
 A function call in Lua has the following syntax:
@@ -822,7 +822,7 @@ In a function call, first@prefixexp@and@args@are evaluated. If the value
 of@prefixexp@has type@function@, then that function is called with the given
 arguments. Otherwise, its "call" metamethod is called, having as first
 parameter the value of@prefixexp@, followed by the original call arguments
-(see |lrv-langMetatables|).
+(see |lrv50-langMetatables|).
 
 The form
 
@@ -844,8 +844,8 @@ syntactic sugar for $f('...')$, that is, the argument list is a single literal
 string.
 
 Because a function can return any number of results (see
-|lrv-langContStructs|), the number of results must be adjusted before they are
-used.  If the function is called as a statement (see |lrv-langFuncStat|), then
+|lrv50-langContStructs|), the number of results must be adjusted before they are
+used.  If the function is called as a statement (see |lrv50-langFuncStat|), then
 its return list is adjusted to zero elements, thus discarding all returned
 values.  If the function is called inside another expression or in the middle
 of a list of expressions, then its return list is adjusted to one element,
@@ -883,7 +883,7 @@ Lua would read that as$a = f(g).x(a)$.  So, if you want two statements, you
 must add a semi-colon between them.  If you actually want to call$f$, you must
 remove the line break before$(g)$.
 
-                                                                *lrv-tailcall*
+                                                                *lrv50-tailcall*
 A call of the form$return$@functioncall@is called a@tail call@. Lua
 implements@proper tail calls@(or@proper tail recursion@): In a tail call, the
 called function reuses the stack entry of the calling function. Therefore,
@@ -902,7 +902,7 @@ the following examples are not tail calls:
 >
 
 ------------------------------------------------------------------------------
-2.5.8  Function Definitions                                 *lrv-langFuncDefs*
+2.5.8  Function Definitions                                 *lrv50-langFuncDefs*
 
 
 The syntax for function definition is
@@ -940,7 +940,7 @@ translates to
 >
        local f; f = function () ... end
 >
-                                                                 *lrv-closure*
+                                                                 *lrv50-closure*
 A function definition is an executable expression, whose value has
 type@function@. When Lua pre-compiles a chunk, all its function bodies are
 pre-compiled too. Then, whenever Lua executes the function definition, the
@@ -955,7 +955,7 @@ values:
 	$parlist1 ::= namelist [$#`,' `...'#$]$
 	$parlist1 ::=$#`...'#
 
-                                                                  *lrv-vararg*
+                                                                  *lrv50-vararg*
 When a function is called, the list of arguments is adjusted to the length of
 the list of parameters, unless the function is a variadic or@vararg function@,
 which is indicated by three dots ($`...'$) at the end of its parameter list.
@@ -985,11 +985,11 @@ Then, we have the following mapping from arguments to parameters:
        g(3, 4, 5, 8)    a=3, b=4,   arg={5, 8; n=2}
        g(5, r())        a=5, b=1,   arg={2, 3; n=2}
 >
-Results are returned using the#return#statement (see |lrv-langContStructs|).
+Results are returned using the#return#statement (see |lrv50-langContStructs|).
 If control reaches the end of a function without encountering
 a#return#statement, then the function returns with no results.
 
-                                                             *lrv-colonsyntax*
+                                                             *lrv50-colonsyntax*
 The@colon@syntax is used for defining@methods@, that is, functions that have
 an implicit extra parameter$self$.  Thus, the statement
 >
@@ -1001,7 +1001,7 @@ is syntactic sugar for
 >
 
 ==============================================================================
-2.6  Visibility Rules                                     *lrv-langVisibRules*
+2.6  Visibility Rules                                     *lrv50-langVisibRules*
 
 
 Lua is a lexically scoped language. The scope of variables begins at the
@@ -1033,7 +1033,7 @@ by functions defined inside their scope. For instance:
     return counter
   end
 >
-                                                                 *lrv-upvalue*
+                                                                 *lrv50-upvalue*
 A local variable used by an inner function is called an@upvalue@,
 or@external local variable@, inside the inner function.
 
@@ -1053,21 +1053,21 @@ them share the same$x$.
 
 
 ==============================================================================
-2.7  Error Handling                                            *lrv-langError*
+2.7  Error Handling                                            *lrv50-langError*
 
 
 Because Lua is an extension language, all Lua actions start from C code in the
-host program calling a function from the Lua library (see |lrv-apiProtCalls|).
+host program calling a function from the Lua library (see |lrv50-apiProtCalls|).
 Whenever an error occurs during Lua compilation or execution, control returns
 to C, which can take appropriate measures (such as print an error message).
 
 Lua code can explicitly generate an error by calling the$error$function (see
-|lrv-error|). If you need to catch errors in Lua, you can use
-the$pcall$function (see |lrv-pcall|).
+|lrv50-error|). If you need to catch errors in Lua, you can use
+the$pcall$function (see |lrv50-pcall|).
 
 
 ==============================================================================
-2.8  Metatables                           *lrv-metatable* *lrv-langMetatables*
+2.8  Metatables                           *lrv50-metatable* *lrv50-langMetatables*
 
 
 Every table and userdata object in Lua may have a@metatable@.
@@ -1083,7 +1083,7 @@ previous example, the event is$"add"$and the metamethod is the function that
 performs the addition.
 
 You can query and change the metatable of an object through the
-$set/getmetatable$functions (see |lrv-getmetatable|, |lrv-setmetatable|).
+$set/getmetatable$functions (see |lrv50-getmetatable|, |lrv50-setmetatable|).
 
 A metatable may control how an object behaves in arithmetic operations, order
 comparisons, concatenation, and indexing. A metatable can also define a
@@ -1103,7 +1103,7 @@ Lua function describing how the interpreter executes that operation.
 The code shown here in Lua is only illustrative; the real behavior is hard
 coded in the interpreter and it is much more efficient than this simulation.
 All functions used in these descriptions ($rawget$,$tonumber$, etc.) are
-described in |lrv-libBasic|. In particular, to retrieve the metamethod of a
+described in |lrv50-libBasic|. In particular, to retrieve the metamethod of a
 given object, we use the expression
 >
   metatable(obj)[event]
@@ -1116,7 +1116,7 @@ That is, the access to a metamethod does not invoke other metamethods, and the
 access to objects with no metatables does not fail (it simply results
 in#nil#).
 
-$"add":$                                                           *lrv-__add*
+$"add":$                                                           *lrv50-__add*
 --------
 the$+$operation.
 
@@ -1145,19 +1145,19 @@ Using that function, the behavior of the$op1 + op2$is
    end
  end
 >
-$"sub":$                                                           *lrv-__sub*
+$"sub":$                                                           *lrv50-__sub*
 --------
 the$-$operation. Behavior similar to the "add" operation.
 
-$"mul":$                                                           *lrv-__mul*
+$"mul":$                                                           *lrv50-__mul*
 --------
 the$*$operation. Behavior similar to the "add" operation.
 
-$"div":$                                                           *lrv-__div*
+$"div":$                                                           *lrv50-__div*
 --------
 the$/$operation. Behavior similar to the "add" operation.
 
-$"pow":$                                                           *lrv-__pow*
+$"pow":$                                                           *lrv50-__pow*
 --------
 the$^$(exponentiation) operation.
 >
@@ -1176,7 +1176,7 @@ the$^$(exponentiation) operation.
    end
   end
 >
-$"unm":$                                                           *lrv-__unm*
+$"unm":$                                                           *lrv50-__unm*
 --------
 the unary$-$operation.
 >
@@ -1196,7 +1196,7 @@ the unary$-$operation.
    end
  end
 >
-$"concat":$                                                     *lrv-__concat*
+$"concat":$                                                     *lrv50-__concat*
 -----------
 the$..$(concatenation) operation.
 >
@@ -1214,7 +1214,7 @@ the$..$(concatenation) operation.
    end
  end
 >
-$"eq":$                                                             *lrv-__eq*
+$"eq":$                                                             *lrv50-__eq*
 -------
 the$==$operation.
 
@@ -1250,7 +1250,7 @@ The "eq" event is defined as follows:
 >
 $a ~= b$is equivalent to$not (a == b)$.
 
-$"lt":$                                                             *lrv-__lt*
+$"lt":$                                                             *lrv50-__lt*
 -------
 the$<$operation.
 >
@@ -1271,7 +1271,7 @@ the$<$operation.
 >
 $a > b$is equivalent to$b < a$.
 
-$"le":$                                                             *lrv-__le*
+$"le":$                                                             *lrv50-__le*
 -------
 the$<=$operation.
 >
@@ -1299,7 +1299,7 @@ $a >= b$is equivalent to$b <= a$. Note that, in the absence of a "le"
 metamethod, Lua tries the "lt", assuming that$a <= b$is equivalent
 to$not (b < a)$.
 
-$"index":$                                                       *lrv-__index*
+$"index":$                                                       *lrv50-__index*
 ----------
 The indexing access$table[key]$.
 >
@@ -1321,7 +1321,7 @@ The indexing access$table[key]$.
    else return h[key]          -- or repeat operation on it
  end
 >
-$"newindex":$                                                 *lrv-__newindex*
+$"newindex":$                                                 *lrv50-__newindex*
 -------------
 The indexing assignment$table[key] = value$.
 >
@@ -1343,7 +1343,7 @@ The indexing assignment$table[key] = value$.
    else h[key] = value             -- or repeat operation on it
  end
 >
-$"call":$                                                         *lrv-__call*
+$"call":$                                                         *lrv50-__call*
 ---------
 called when Lua calls a value.
 >
@@ -1362,7 +1362,7 @@ called when Lua calls a value.
 >
 
 ==============================================================================
-2.9  Garbage Collection                                           *lrv-langGC*
+2.9  Garbage Collection                                           *lrv50-langGC*
 
 
 Lua does automatic memory management. That means that you do not have to worry
@@ -1381,24 +1381,24 @@ counter is adjusted, and then the threshold is reset to twice the new value of
 the byte counter.
 
 Through the C API, you can query those numbers and change the threshold (see
-|lrv-apiGC|). Setting the threshold to zero actually forces an immediate
+|lrv50-apiGC|). Setting the threshold to zero actually forces an immediate
 garbage-collection cycle, while setting it to a huge number effectively stops
 the garbage collector. Using Lua code you have a more limited control over
 garbage-collection cycles, through the$gcinfo$and$collectgarbage$functions
-(see |lrv-gcinfo|, |lrv-collectgarbage|).
+(see |lrv50-gcinfo|, |lrv50-collectgarbage|).
 
 
 ------------------------------------------------------------------------------
-2.9.1  Garbage-Collection Metamethods                         *lrv-langGCMeta*
+2.9.1  Garbage-Collection Metamethods                         *lrv50-langGCMeta*
 
 
 Using the C API, you can set garbage-collector metamethods for userdata (see
-|lrv-langMetatables|). These metamethods are also called@finalizers@.
+|lrv50-langMetatables|). These metamethods are also called@finalizers@.
 Finalizers allow you to coordinate Lua's garbage collection with external
 resource management (such as closing files, network or database connections,
 or freeing your own memory).
 
-                                                                    *lrv-__gc*
+                                                                    *lrv50-__gc*
 Free userdata with a field$__gc$in their metatables are not collected
 immediately by the garbage collector. Instead, Lua puts them in a list. After
 the collection, Lua does the equivalent of the following function for each
@@ -1418,7 +1418,7 @@ the userdata created last in the program.
 
 
 ------------------------------------------------------------------------------
-2.9.2 - Weak Tables                       *lrv-weaktable* *lrv-langWeaktables*
+2.9.2 - Weak Tables                       *lrv50-weaktable* *lrv50-langWeaktables*
 
 
 A@weak table@is a table whose elements are@weak references@. A weak reference
@@ -1426,7 +1426,7 @@ is ignored by the garbage collector. In other words, if the only references to
 an object are weak references, then the garbage collector will collect that
 object.
 
-                                                                  *lrv-__mode*
+                                                                  *lrv50-__mode*
 A weak table can have weak keys, weak values, or both. A table with weak keys
 allows the collection of its keys, but prevents the collection of its values.
 A table with both weak keys and weak values allows the collection of both keys
@@ -1442,7 +1442,7 @@ metatable is undefined.
 
 
 ==============================================================================
-2.10  Coroutines                                *lrv-coroutine* *lrv-langCoro*
+2.10  Coroutines                                *lrv50-coroutine* *lrv50-langCoro*
 
 
 Lua supports coroutines, also called@semi-coroutines@or@collaborative@
@@ -1523,7 +1523,7 @@ When you run it, it produces the following output:
 >
 
 ==============================================================================
-3  THE APPLICATION PROGRAM INTERFACE                                 *lrv-API*
+3  THE APPLICATION PROGRAM INTERFACE                                 *lrv50-API*
 ==============================================================================
 
 
@@ -1538,10 +1538,10 @@ generate hidden side-effects.
 
 
 ==============================================================================
-3.1  States                                                    *lrv-apiStates*
+3.1  States                                                    *lrv50-apiStates*
 
 
-                                                               *lrv-lua_State*
+                                                               *lrv50-lua_State*
 The Lua library is fully reentrant: it has no global variables. The whole
 state of the Lua interpreter (global variables, stack, etc.) is stored in a
 dynamically allocated structure of type$lua_State$.
@@ -1549,12 +1549,12 @@ dynamically allocated structure of type$lua_State$.
 A pointer to this state must be passed as the first argument to every function
 in the library, except to$lua_open$, which creates a Lua state from scratch.
 
-                                                                *lrv-lua_open*
+                                                                *lrv50-lua_open*
 Before calling any API function, you must create a state by calling$lua_open$:
 >
        lua_State *lua_open (void);
 >
-                                                               *lrv-lua_close*
+                                                               *lrv50-lua_close*
 To release a state created with$lua_open$, call$lua_close$:
 >
        void lua_close (lua_State *L);
@@ -1569,7 +1569,7 @@ growing too large.
 
 
 ==============================================================================
-3.2  The Stack and Indices                          *lrv-stack* *lrv-apiStack*
+3.2  The Stack and Indices                          *lrv50-stack* *lrv50-apiStack*
 
 
 Lua uses a@virtual stack@to pass values to and from C. Each element in this
@@ -1579,9 +1579,9 @@ Whenever Lua calls C, the called function gets a new stack, which is
 independent of previous stacks and of stacks of C functions that are still
 active. That stack initially contains any arguments to the C function, and it
 is where the C function pushes its results to be returned to the caller (see
-|lrv-apiCFuncDef|).
+|lrv50-apiCFuncDef|).
 
-                                                              *lrv-stackindex*
+                                                              *lrv50-stackindex*
 For convenience, most query operations in the API do not follow a strict stack
 discipline. Instead, they can refer to any element in the stack by using
 an@index@: a positive index represents an@absolute@stack position (starting
@@ -1593,7 +1593,7 @@ index@n@represents the last element; index@-1@also represents the last element
 We say that an index is@valid@if it lies between 1 and the stack top (that is,
 if$1 <= abs(index) <= top$).
 
-                                                              *lrv-lua_gettop*
+                                                              *lrv50-lua_gettop*
 At any time, you can get the index of the top element by calling$lua_gettop$:
 >
        int lua_gettop (lua_State *L);
@@ -1601,7 +1601,7 @@ At any time, you can get the index of the top element by calling$lua_gettop$:
 Because indices start at 1, the result of$lua_gettop$is equal to the number of
 elements in the stack (and so 0 means an empty stack).
 
-                                                          *lrv-lua_checkstack*
+                                                          *lrv50-lua_checkstack*
 When you interact with Lua API,
 @you are responsible for controlling stack overflow@. The function
 >
@@ -1625,16 +1625,16 @@ formally, we define an@acceptable index@as follows:
 >
 Note that 0 is never an acceptable index.
 
-                                                             *lrv-pseudoindex*
+                                                             *lrv50-pseudoindex*
 Unless otherwise noted, any function that accepts valid indices can also be
 called with@pseudo-indices@, which represent some Lua values that are
 accessible to the C code but are not in the stack. Pseudo-indices are used to
 access the global environment, the registry, and the upvalues of a C function
-(see |lrv-apiCCloseDef|).
+(see |lrv50-apiCCloseDef|).
 
 
 ==============================================================================
-3.3  Stack Manipulation                                      *lrv-apiStackInd*
+3.3  Stack Manipulation                                      *lrv50-apiStackInd*
 
 
 The API offers the following functions for basic stack manipulation:
@@ -1645,7 +1645,7 @@ The API offers the following functions for basic stack manipulation:
        void lua_insert    (lua_State *L, int index);
        void lua_replace   (lua_State *L, int index);
 >
-                                                *lrv-lua_settop* *lrv-lua_pop*
+                                                *lrv50-lua_settop* *lrv50-lua_pop*
 $lua_settop$accepts any acceptable index, or 0, and sets the stack top to that
 index. If the new top is larger than the old one, then the new elements are
 filled with#nil#. If$index$is 0, then all stack elements are removed. A useful
@@ -1655,7 +1655,7 @@ macro defined in the$lua.h$is
 >
 which pops$n$elements from the stack.
 
-       *lrv-lua_pushvalue* *lrv-lua_remove* *lrv-lua_insert* *lrv-lua_replace*
+       *lrv50-lua_pushvalue* *lrv50-lua_remove* *lrv50-lua_insert* *lrv50-lua_replace*
 $lua_pushvalue$pushes onto the stack a copy of the element at the given
 index.$lua_remove$removes the element at the given position, shifting down the
 elements above that position to fill the gap.$lua_insert$moves the top element
@@ -1666,7 +1666,7 @@ All these functions accept only valid indices. (You cannot
 call$lua_remove$or$lua_insert$with pseudo-indices, as they do not represent a
 stack position.)
 
-                                                            *lrv-stackexample*
+                                                            *lrv50-stackexample*
 As an example, if the stack starts as$10 20 30 40 50*$(from bottom to top; the
 $`*'$marks the top), then
 >
@@ -1682,10 +1682,10 @@ $`*'$marks the top), then
 >
 
 ==============================================================================
-3.4  Querying the Stack                                      *lrv-apiStackQue*
+3.4  Querying the Stack                                      *lrv50-apiStackQue*
 
 
-                                                               *lrv-checktype*
+                                                               *lrv50-checktype*
 To check the type of a stack element, the following functions are available:
 >
        int lua_type            (lua_State *L, int index);
@@ -1701,34 +1701,34 @@ To check the type of a stack element, the following functions are available:
 >
 These functions can be called with any acceptable index.
 
-                                            *lrv-typeconstants* *lrv-lua_type*
+                                            *lrv50-typeconstants* *lrv50-lua_type*
 $lua_type$returns the type of a value in the stack, or$LUA_TNONE$for a
 non-valid index (that is, if that stack position is "empty"). The types
 returned by$lua_type$are coded by the following constants defined in$lua.h$:
 $LUA_TNIL$,$LUA_TNUMBER$,$LUA_TBOOLEAN$,$LUA_TSTRING$,$LUA_TTABLE$,
 $LUA_TFUNCTION$,$LUA_TUSERDATA$,$LUA_TTHREAD$, and$LUA_TLIGHTUSERDATA$.
 
-                                                            *lrv-lua_typename*
+                                                            *lrv50-lua_typename*
 The following function translates these constants to strings:
 >
        const char *lua_typename  (lua_State *L, int type);
 >
-     *lrv-lua_isnil* *lrv-lua_isboolean* *lrv-lua_isnumber* *lrv-lua_isstring*
-                  *lrv-lua_istable* *lrv-lua_isfunction* *lrv-lua_iscfunction*
-                                *lrv-lua_isuserdata* *lrv-lua_islightuserdata*
+     *lrv50-lua_isnil* *lrv50-lua_isboolean* *lrv50-lua_isnumber* *lrv50-lua_isstring*
+                  *lrv50-lua_istable* *lrv50-lua_isfunction* *lrv50-lua_iscfunction*
+                                *lrv50-lua_isuserdata* *lrv50-lua_islightuserdata*
 The$lua_is*$functions return 1 if the object is compatible with the given
 type, and 0 otherwise.$lua_isboolean$is an exception to this rule: it succeeds
 only for boolean values (otherwise it would be useless, as any value has a
 boolean value). They always return 0 for a non-valid index.$lua_isnumber$
 accepts numbers and numerical strings;$lua_isstring$accepts strings and
-numbers (see |lrv-langCoercion|);$lua_isfunction$accepts both Lua functions
+numbers (see |lrv50-langCoercion|);$lua_isfunction$accepts both Lua functions
 and C functions; and$lua_isuserdata$accepts both full and light userdata.
 To distinguish between Lua functions and C functions, you can use
 $lua_iscfunction$. To distinguish between full and light userdata, you can
 use$lua_islightuserdata$. To distinguish between numbers and numerical
 strings, you can use$lua_type$.
 
-                         *lrv-lua_equal* *lrv-lua_rawequal* *lrv-lua_lessthan*
+                         *lrv50-lua_equal* *lrv50-lua_rawequal* *lrv50-lua_lessthan*
 The API also contains functions to compare two values in the stack:
 >
        int lua_equal    (lua_State *L, int index1, int index2);
@@ -1736,13 +1736,13 @@ The API also contains functions to compare two values in the stack:
        int lua_lessthan (lua_State *L, int index1, int index2);
 >
 $lua_equal$and$lua_lessthan$are equivalent to their counterparts in Lua (see
-|lrv-langRelOp|).$lua_rawequal$compares the values for primitive equality,
+|lrv50-langRelOp|).$lua_rawequal$compares the values for primitive equality,
 without metamethods. These functions return 0 (false) if any of the indices
 are non-valid.
 
 
 ==============================================================================
-3.5  Getting Values from the Stack                           *lrv-apiStackPop*
+3.5  Getting Values from the Stack                           *lrv50-apiStackPop*
 
 
 To translate a value in the stack to a specific C type, you can use the
@@ -1760,20 +1760,20 @@ following conversion functions:
 These functions can be called with any acceptable index. When called with a
 non-valid index, they act as if the given value had an incorrect type.
 
-                                                           *lrv-lua_toboolean*
+                                                           *lrv50-lua_toboolean*
 $lua_toboolean$converts the Lua value at the given index to a C "boolean"
 value (0 or 1). Like all tests in Lua,$lua_toboolean$returns 1 for any Lua
 value different from#false#and#nil#; otherwise it returns 0. It also returns 0
 when called with a non-valid index. (If you want to accept only real boolean
 values, use$lua_isboolean$to test the type of the value.)
 
-                                                              *lrv-lua_number*
+                                                              *lrv50-lua_number*
 $lua_tonumber$converts the Lua value at the given index to a number (by
 default,$lua_Number$is$double$). The Lua value must be a number or a string
-convertible to number (see |lrv-langCoercion|);
+convertible to number (see |lrv50-langCoercion|);
 otherwise,$lua_tonumber$returns 0.
 
-                                                            *lrv-lua_tostring*
+                                                            *lrv50-lua_tostring*
 $lua_tostring$converts the Lua value at the given index to a string ($const
 char*$). The Lua value must be a string or a number; otherwise, the function
 returns$NULL$. If the value is a number, then$lua_tostring$also@changes the@
@@ -1786,19 +1786,19 @@ $lua_strlen$to get its actual length. Because Lua has garbage collection,
 there is no guarantee that the pointer returned by$lua_tostring$will be valid
 after the corresponding value is removed from the stack. If you need the
 string after the current function returns, then you should duplicate it or put
-it into the registry (see |lrv-apiRegistry|).
+it into the registry (see |lrv50-apiRegistry|).
 
-                                                         *lrv-lua_tocfunction*
+                                                         *lrv50-lua_tocfunction*
 $lua_tocfunction$converts a value in the stack to a C function. This value
 must be a C function; otherwise,$lua_tocfunction$returns$NULL$. The
-type$lua_CFunction$is explained in |lrv-apiCFuncDef|.
+type$lua_CFunction$is explained in |lrv50-apiCFuncDef|.
 
-                                                            *lrv-lua_tothread*
+                                                            *lrv50-lua_tothread*
 $lua_tothread$converts a value in the stack to a Lua thread (represented
 as$lua_State *$). This value must be a thread; otherwise,$lua_tothread$
 returns$NULL$.
 
-                                                           *lrv-lua_topointer*
+                                                           *lrv50-lua_topointer*
 $lua_topointer$converts a value in the stack to a generic C pointer
 ($void*$). The value may be a userdata, a table, a thread, or a function;
 otherwise,$lua_topointer$returns$NULL$. Lua ensures that different objects of
@@ -1806,15 +1806,15 @@ the same type return different pointers. There is no direct way to convert the
 pointer back to its original value. Typically this function is used for debug
 information.
 
-$lua_touserdata$is explained in |lrv-apiUserdata|.
+$lua_touserdata$is explained in |lrv50-apiUserdata|.
 
 
 ==============================================================================
-3.6  Pushing Values onto the Stack                          *lrv-apiStackPush*
+3.6  Pushing Values onto the Stack                          *lrv50-apiStackPush*
 
 
-                  *lrv-lua_pushboolean* *lrv-lua_pushnumber* *lrv-lua_pushnil*
-                           *lrv-lua_pushcfunction* *lrv-lua_pushlightuserdata*
+                  *lrv50-lua_pushboolean* *lrv50-lua_pushnumber* *lrv50-lua_pushnil*
+                           *lrv50-lua_pushcfunction* *lrv50-lua_pushlightuserdata*
 The API has the following functions to push C values onto the stack:
 >
        void lua_pushboolean       (lua_State *L, int b);
@@ -1826,14 +1826,14 @@ The API has the following functions to push C values onto the stack:
 These functions receive a C value, convert it to a corresponding Lua value,
 and push the result onto the stack.
 
-                                    *lrv-lua_pushlstring* *lrv-lua_pushstring*
+                                    *lrv50-lua_pushlstring* *lrv50-lua_pushstring*
 In particular,$lua_pushlstring$and$lua_pushstring$make an internal copy of the
 given string.$lua_pushstring$can only be used to push proper C strings (that
 is, strings that end with a zero and do not contain embedded zeros);
 otherwise, you should use the more general$lua_pushlstring$, which accepts an
 explicit size.
 
-                                  *lrv-lua_pushfstring* *lrv-lua_pushvfstring*
+                                  *lrv50-lua_pushfstring* *lrv50-lua_pushvfstring*
 You can also push "formatted" strings:
 >
        const char *lua_pushfstring  (lua_State *L, const char *fmt, ...);
@@ -1853,7 +1853,7 @@ important differences:
      with no size restrictions),$`%f'$(inserts a$lua_Number$),$`%d'$(inserts
      an$int$), and$`%c'$(inserts an$int$as a character).
 
-                                                              *lrv-lua_concat*
+                                                              *lrv50-lua_concat*
 The function
 >
        void lua_concat (lua_State *L, int n);
@@ -1862,27 +1862,27 @@ concatenates the$n$values at the top of the stack, pops them, and leaves the
 result at the top. If$n$is 1, the result is that single string (that is, the
 function does nothing); if$n$is 0, the result is the empty string.
 Concatenation is done following the usual semantics of Lua (see
-|lrv-langConcat|).
+|lrv50-langConcat|).
 
 
 ==============================================================================
-3.7  Controlling Garbage Collection                                *lrv-apiGC*
+3.7  Controlling Garbage Collection                                *lrv50-apiGC*
 
 
 Lua uses two numbers to control its garbage collection: the@count@and
-the@threshold@(see |lrv-langGC|). The first counts the amount of memory in use
+the@threshold@(see |lrv50-langGC|). The first counts the amount of memory in use
 by Lua; when the count reaches the threshold, Lua runs its garbage collector.
 After the collection, the count is updated and the threshold  is set to twice
 the count value.
 
-                                 *lrv-lua_getgccount* *lrv-lua_getgcthreshold*
+                                 *lrv50-lua_getgccount* *lrv50-lua_getgcthreshold*
 You can access the current values of these two numbers through the following
 functions:
 >
        int  lua_getgccount     (lua_State *L);
        int  lua_getgcthreshold (lua_State *L);
 >
-                                                      *lrv-lua_setgcthreshold*
+                                                      *lrv50-lua_setgcthreshold*
 Both return their respective values in Kbytes. You can change the threshold
 value with
 >
@@ -1896,10 +1896,10 @@ After the collection, a new threshold is set according to the previous rule.
 
 
 ==============================================================================
-3.8  Userdata                                 *lrv-userdata* *lrv-apiUserdata*
+3.8  Userdata                                 *lrv50-userdata* *lrv50-apiUserdata*
 
 
-Userdata represents C values in Lua (see |lrv-userdatatype|). Lua supports two
+Userdata represents C values in Lua (see |lrv50-userdatatype|). Lua supports two
 types of userdata:@full userdata@and@light userdata@.
 
 A full userdata represents a block of memory. It is an object (like a table):
@@ -1907,7 +1907,7 @@ you must create it, it can have its own metatable, and you can detect when it
 is being collected. A full userdata is only equal to itself (under raw
 equality).
 
-                                                          *lrv-lightuserdata*
+                                                          *lrv50-lightuserdata*
 A light userdata represents a pointer. It is a value (like a number): you do
 not create it, it has no metatables, it is not collected (as it was never
 created). A light userdata is equal to "any" light userdata with the same C
@@ -1917,7 +1917,7 @@ In Lua code, there is no way to test whether a userdata is full or light; both
 have type$userdata$. In C code,$lua_type$returns$LUA_TUSERDATA$for full
 userdata, and$LUA_TLIGHTUSERDATA$for light userdata.
 
-                                                         *lrv-lua_newuserdata*
+                                                         *lrv50-lua_newuserdata*
 You can create a new full userdata with the following function:
 >
        void *lua_newuserdata (lua_State *L, size_t size);
@@ -1926,10 +1926,10 @@ This function allocates a new block of memory with the given size, pushes on
 the stack a new userdata with the block address, and returns this address.
 
 To push a light userdata into the stack you use$lua_pushlightuserdata$(see
-|lrv-apiStackPush|).
+|lrv50-apiStackPush|).
 
-                                                          *lrv-lua_touserdata*
-$lua_touserdata$(see |lrv-apiStackPop|) retrieves the value of a userdata.
+                                                          *lrv50-lua_touserdata*
+$lua_touserdata$(see |lrv50-apiStackPop|) retrieves the value of a userdata.
 When applied on a full userdata, it returns the address of its block; when
 applied on a light userdata, it returns its pointer; when applied on a
 non-userdata value, it returns$NULL$.
@@ -1939,7 +1939,7 @@ any, and then it frees the userdata's corresponding memory.
 
 
 ==============================================================================
-3.9  Metatables                                            *lrv-apiMetatables*
+3.9  Metatables                                            *lrv50-apiMetatables*
 
 
 The following functions allow you to manipulate the metatables of an object:
@@ -1947,12 +1947,12 @@ The following functions allow you to manipulate the metatables of an object:
        int lua_getmetatable (lua_State *L, int index);
        int lua_setmetatable (lua_State *L, int index);
 >
-                                                        *lrv-lua_getmetatable*
+                                                        *lrv50-lua_getmetatable*
 $lua_getmetatable$pushes on the stack the metatable of a given object. If the
 index is not valid, or if the object does not have a metatable,
 $lua_getmetatable$returns 0 and pushes nothing on the stack.
 
-                                                        *lrv-lua_setmetatable*
+                                                        *lrv50-lua_setmetatable*
 $lua_setmetatable$pops a table from the stack and sets it as the new metatable
 for the given object. $lua_setmetatable$returns 0 when it cannot set the
 metatable of the given object (that is, when the object is neither a userdata
@@ -1960,7 +1960,7 @@ nor a table); even then it pops the table from the stack.
 
 
 ==============================================================================
-3.10  Loading Lua Chunks                        *lrv-lua_load* *lrv-apiChunks*
+3.10  Loading Lua Chunks                        *lrv50-lua_load* *lrv50-apiChunks*
 
 
 You can load a Lua chunk with$lua_load$:
@@ -1994,7 +1994,7 @@ In the current implementation, the reader function cannot call any Lua
 function; to ensure that, it always receives$NULL$as the Lua state.
 
 The@chunkname@is used for error messages and debug information (see
-|lrv-Debug|).
+|lrv50-Debug|).
 
 See the auxiliary library ($lauxlib.c$) for examples of how to
 use$lua_load$and for some ready-to-use functions to load chunks from files and
@@ -2002,16 +2002,16 @@ strings.
 
 
 ==============================================================================
-3.11  Manipulating Tables                                      *lrv-apiTables*
+3.11  Manipulating Tables                                      *lrv50-apiTables*
 
-                                                            *lrv-lua_newtable*
-Tables (see |lrv-tabletype|) are created by calling the function
+                                                            *lrv50-lua_newtable*
+Tables (see |lrv50-tabletype|) are created by calling the function
 >
        void lua_newtable (lua_State *L);
 >
 This function creates a new, empty table and pushes it onto the stack.
 
-                                                            *lrv-lua_gettable*
+                                                            *lrv50-lua_gettable*
 To read a value from a table that resides somewhere in the stack, call
 >
        void lua_gettable (lua_State *L, int index);
@@ -2019,15 +2019,15 @@ To read a value from a table that resides somewhere in the stack, call
 where$index$points to the table.$lua_gettable$pops a key from the stack and
 returns (on the stack) the contents of the table at that key. The table is
 left where it was in the stack. As in Lua, this function may trigger a
-metamethod for the "index" event (see |lrv-langMetatables|).
+metamethod for the "index" event (see |lrv50-langMetatables|).
 
-                                                              *lrv-lua_rawget*
+                                                              *lrv50-lua_rawget*
 To get the real value of any table key, without invoking any metamethod, use
 the@raw@version:
 >
        void lua_rawget (lua_State *L, int index);
 >
-                                                            *lrv-lua_settable*
+                                                            *lrv50-lua_settable*
 To store a value into a table that resides somewhere in the stack, you push
 the key and then the value onto the stack, and call
 >
@@ -2037,13 +2037,13 @@ where$index$points to the table.$lua_settable$pops from the stack both the key
 and the value. The table is left where it was in the stack. As in Lua, this
 operation may trigger a metamethod for the "settable" or "newindex" events.
 
-                                                              *lrv-lua_rawset*
+                                                              *lrv50-lua_rawset*
 To set the real value of any table index, without invoking any metamethod, use
 the@raw@version:
 >
        void lua_rawset (lua_State *L, int index);
 >
-                                                                *lrv-lua_next*
+                                                                *lrv50-lua_next*
 You can traverse a table with the function
 >
        int lua_next (lua_State *L, int index);
@@ -2053,7 +2053,7 @@ the stack, and pushes a key-value pair from the table (the "next" pair after
 the given key). If there are no more elements, then$lua_next$returns 0 (and
 pushes nothing). Use a#nil#key to signal the start of a traversal.
 
-                                                          *lrv-tabletraversal*
+                                                          *lrv50-tabletraversal*
 A typical traversal looks like this:
 >
        /* table is in the stack at index `t' */
@@ -2073,12 +2073,12 @@ next call to$lua_next$.
 
 
 ==============================================================================
-3.12  Manipulating Environments                              *lrv-apiEnvirons*
+3.12  Manipulating Environments                              *lrv50-apiEnvirons*
 
 
 All global variables are kept in ordinary Lua tables, called environments. The
 initial environment is called the global environment. This table is always at
-pseudo-index$LUA_GLOBALSINDEX$(see also |lrv-_G|).
+pseudo-index$LUA_GLOBALSINDEX$(see also |lrv50-_G|).
 
 To access and change the value of global variables, you can use regular table
 operations over an environment table. For instance, to access the value of a
@@ -2089,7 +2089,7 @@ global variable, do
 >
 You can change the global environment of a Lua thread using$lua_replace$.
 
-                                           *lrv-lua_getfenv* *lrv-lua_setfenv*
+                                           *lrv50-lua_getfenv* *lrv50-lua_setfenv*
 The following functions get and set the environment of Lua functions:
 >
        void lua_getfenv (lua_State *L, int index);
@@ -2103,9 +2103,9 @@ object at the given index is not a Lua function,$lua_setfenv$returns 0.
 
 
 ==============================================================================
-3.13  Using Tables as Arrays                               *lrv-apiTableAsArr*
+3.13  Using Tables as Arrays                               *lrv50-apiTableAsArr*
 
-                                           *lrv-lua_rawgeti* *lrv-lua_rawseti*
+                                           *lrv50-lua_rawgeti* *lrv50-lua_rawseti*
 The API has functions that help to use Lua tables as arrays, that is, tables
 indexed by numbers only:
 >
@@ -2119,7 +2119,7 @@ value from the stack.
 
 
 ==============================================================================
-3.14  Calling Functions                      *lrv-lua_call* *lrv-apiFuncCalls*
+3.14  Calling Functions                      *lrv50-lua_call* *lrv50-apiFuncCalls*
 
 
 Functions defined in Lua and C functions registered in Lua can be called from
@@ -2169,7 +2169,7 @@ code of the standard libraries for examples.)
 
 
 ==============================================================================
-3.15  Protected Calls                       *lrv-lua_pcall* *lrv-apiProtCalls*
+3.15  Protected Calls                       *lrv50-lua_pcall* *lrv50-apiProtCalls*
 
 
 When you call a function with$lua_call$, any error inside the called function
@@ -2196,7 +2196,7 @@ Typically, the error handler function is used to add more debug information to
 the error message, such as a stack traceback. Such information cannot be
 gathered after the return of$lua_pcall$, since by then the stack has unwound.
 
-                                                           *lrv-apierrorcodes*
+                                                           *lrv50-apierrorcodes*
 The$lua_pcall$function returns 0 in case of success or one of the following
 error codes (defined in$lua.h$):
 
@@ -2207,9 +2207,9 @@ error codes (defined in$lua.h$):
 
 
 ==============================================================================
-3.16  Defining C Functions                                   *lrv-apiCFuncDef*
+3.16  Defining C Functions                                   *lrv50-apiCFuncDef*
 
-                                                           *lrv-lua_CFunction*
+                                                           *lrv50-lua_CFunction*
 Lua can be extended with functions written in C. These functions must be of
 type$lua_CFunction$, which is defined as
 >
@@ -2228,7 +2228,7 @@ first), and returns the number of results. Any other value in the stack below
 the results will be properly discharged by Lua. Like a Lua function, a C
 function called by Lua can also return many results.
 
-                                                        *lrv-cfunctionexample*
+                                                        *lrv50-cfunctionexample*
 As an example, the following function receives a variable number
 of numerical arguments and returns their average and sum:
 >
@@ -2248,7 +2248,7 @@ of numerical arguments and returns their average and sum:
          return 2;                   /* number of results */
        }
 >
-                                                            *lrv-lua_register*
+                                                            *lrv50-lua_register*
 To register a C function to Lua, there is the following convenience macro:
 >
        #define lua_register(L,n,f) \
@@ -2267,9 +2267,9 @@ as$average$by calling
 >
 
 ==============================================================================
-3.17  Defining C Closures                                   *lrv-apiCCloseDef*
+3.17  Defining C Closures                                   *lrv50-apiCCloseDef*
 
-                                         *lrv-cclosure* *lrv-lua_pushcclosure*
+                                         *lrv50-cclosure* *lrv50-lua_pushcclosure*
 When a C function is created, it is possible to associate some values with it,
 thus creating a@C closure@; these values are then accessible to the function
 whenever it is called. To associate values with a C function, first these
@@ -2295,7 +2295,7 @@ official Lua distribution ($src/lib/*.c$).
 
 
 ==============================================================================
-3.18  Registry                                *lrv-registry* *lrv-apiRegistry*
+3.18  Registry                                *lrv50-registry* *lrv50-apiRegistry*
 
 
 Lua provides a registry, a pre-defined table that can be used by any C code to
@@ -2312,7 +2312,7 @@ other purposes.
 
 
 ==============================================================================
-3.19  Error Handling in C                                       *lrv-apiError*
+3.19  Error Handling in C                                       *lrv50-apiError*
 
 
 Internally, Lua uses the C$longjmp$facility to handle errors. When Lua faces
@@ -2321,7 +2321,7 @@ it@raises@an error, that is, it does a long jump. A@protected environment@
 uses$setjmp$to set a recover point; any error jumps to the most
 recent active recover point.
 
-                                                             *lrv-lua_atpanic*
+                                                             *lrv50-lua_atpanic*
 If an error happens outside any protected environment, Lua calls 
 a@panic function@and then calls$exit(EXIT_FAILURE)$. You can change the panic
 function with
@@ -2337,18 +2337,18 @@ memory allocation error. The following functions run in protected mode (that
 is, they create a protected environment to run), so they never raise an
 error:$lua_open$,$lua_close$,$lua_load$, and$lua_pcall$.
 
-                                                              *lrv-lua_cpcall*
+                                                              *lrv50-lua_cpcall*
 There is yet another function that runs a given C function in protected mode:
 >
        int lua_cpcall (lua_State *L, lua_CFunction func, void *ud);
 >
 $lua_cpcall$calls$func$in protected mode.$func$starts with only one element in
 its stack, a light userdata containing$ud$. In case of errors,$lua_cpcall$
-returns the same error codes as$lua_pcall$(see |lrv-apiProtCalls|), plus the
+returns the same error codes as$lua_pcall$(see |lrv50-apiProtCalls|), plus the
 error object on the top of the stack; otherwise, it returns zero, and does not
 change the stack. Any value returned by$func$is discarded.
 
-                                                               *lrv-lua_error*
+                                                               *lrv50-lua_error*
 C code can generate a Lua error calling the function
 >
        void lua_error (lua_State *L);
@@ -2358,7 +2358,7 @@ stack top. This function does a long jump, and therefore never returns.
 
 
 ==============================================================================
-3.20  Threads                                                 *lrv-apiThreads*
+3.20  Threads                                                 *lrv50-apiThreads*
 
 
 Lua offers partial support for multiple threads of execution. If you have a C
@@ -2366,7 +2366,7 @@ library that offers multi-threading, then Lua can cooperate with it to
 implement the equivalent facility in Lua. Also, Lua implements its own
 coroutine system on top of threads.
 
-                                                           *lrv-lua_newthread*
+                                                           *lrv50-lua_newthread*
 The following function creates a new thread in Lua:
 >
        lua_State *lua_newthread (lua_State *L);
@@ -2383,7 +2383,7 @@ each one independently.
 There is no explicit function to close or to destroy a thread. Threads are
 subject to garbage collection, like any Lua object.
 
-                                              *lrv-lua_resume* *lrv-lua_yield*
+                                              *lrv50-lua_resume* *lrv50-lua_yield*
 To manipulate threads as coroutines, Lua offers the following functions:
 >
        int lua_resume (lua_State *L, int narg);
@@ -2395,7 +2395,7 @@ call$lua_resume$, with$narg$being the number of arguments. This call returns
 when the coroutine suspends or finishes its execution. When it returns, the
 stack contains all values passed to$lua_yield$, or all values returned by the
 body function.$lua_resume$returns 0 if there are no errors running the
-coroutine, or an error code (see |lrv-apiProtCalls|). In case of errors, the
+coroutine, or an error code (see |lrv50-apiProtCalls|). In case of errors, the
 stack contains only the error message. To restart a coroutine, you put on its
 stack only the values to be passed as results from$yield$, and then
 call$lua_resume$.
@@ -2410,7 +2410,7 @@ its execution, and the call to$lua_resume$that started this coroutine returns.
 The parameter$nresults$is the number of values from the stack that are passed
 as results to$lua_resume$.
 
-                                                               *lrv-lua_xmove*
+                                                               *lrv50-lua_xmove*
 To exchange values between different threads, you may use$lua_xmove$:
 >
        void lua_xmove (lua_State *from, lua_State *to, int n);
@@ -2419,7 +2419,7 @@ It pops$n$values from the stack$from$, and puhses them into the stack$to$.
 
 
 ==============================================================================
-4  THE DEBUG INTERFACE                                             *lrv-Debug*
+4  THE DEBUG INTERFACE                                             *lrv50-Debug*
 ==============================================================================
 
 
@@ -2430,9 +2430,9 @@ need "inside information" from the interpreter.
 
 
 ==============================================================================
-4.1  Stack and Function Information                            *lrv-debugInfo*
+4.1  Stack and Function Information                            *lrv50-debugInfo*
 
-                                                            *lrv-lua_getstack*
+                                                            *lrv50-lua_getstack*
 The main function to get information about the interpreter runtime stack is
 >
        int lua_getstack (lua_State *L, int level, lua_Debug *ar);
@@ -2443,7 +2443,7 @@ the current running function, whereas level@n+1@is the function that has
 called level@n@. When there are no errors,$lua_getstack$returns 1; when called
 with a level greater than the stack depth, it returns 0.
 
-                                                               *lrv-lua_Debug*
+                                                               *lrv50-lua_Debug*
 The structure$lua_Debug$is used to carry different pieces of information about
 an active function:
 >
@@ -2462,9 +2462,9 @@ an active function:
     ...
   } lua_Debug;
 >
-The fields of$lua_Debug$are covered at |lrv-lua_Debug-fields|.
+The fields of$lua_Debug$are covered at |lrv50-lua_Debug-fields|.
 
-                                                             *lrv-lua_getinfo*
+                                                             *lrv50-lua_getinfo*
 $lua_getstack$fills only the private part of this structure, for later use. To
 fill the other fields of$lua_Debug$with useful information, call
 >
@@ -2488,7 +2488,7 @@ you can write
        lua_getinfo(L, ">S", &ar);
        printf("%d\n", ar.linedefined);
 >
-                                                        *lrv-lua_Debug-fields*
+                                                        *lrv50-lua_Debug-fields*
 The fields of$lua_Debug$have the following meaning:
 
 source:~
@@ -2531,7 +2531,7 @@ The number of upvalues of the function.
 
 
 ==============================================================================
-4.2  Manipulating Local Variables and Upvalues               *lrv-debugValues*
+4.2  Manipulating Local Variables and Upvalues               *lrv50-debugValues*
 
 
 For the manipulation of local variables and upvalues, the debug interface uses
@@ -2539,7 +2539,7 @@ indices: the first parameter or local variable has index 1, and so on, until
 the last active local variable. Upvalues have no particular order, as they are
 active through the whole function.
 
-                                         *lrv-lua_getlocal* *lrv-lua_setlocal*
+                                         *lrv50-lua_getlocal* *lrv50-lua_setlocal*
 The following functions allow the manipulation of the local variables of a
 given activation record:
 >
@@ -2548,13 +2548,13 @@ given activation record:
 >
 The parameter$ar$must be a valid activation record that was filled by a
 previous call to$lua_getstack$or given as argument to a hook (see
-|lrv-debugHooks|).$lua_getlocal$gets the index$n$of a local variable, pushes
+|lrv50-debugHooks|).$lua_getlocal$gets the index$n$of a local variable, pushes
 the variable's value onto the stack, and returns its name.$lua_setlocal$
 assigns the value at the top of the stack to the variable and returns its
 name. Both functions return$NULL$when the index is greater than the number of
 active local variables.
 
-                                     *lrv-lua_getupvalue* *lrv-lua_setupvalue*
+                                     *lrv50-lua_getupvalue* *lrv50-lua_setupvalue*
 The following functions allow the manipulation of the upvalues of a given
 function (unlike local variables, the upvalues of a function are accessible
 even when the function is not active):
@@ -2572,7 +2572,7 @@ Both functions return$NULL$when the index is greater than the number of
 upvalues. For C functions, these functions use the empty string$""$as a name
 for all upvalues.
 
-                                                            *lrv-debugexample*
+                                                            *lrv50-debugexample*
 As an example, the following function lists the names of all local variables
 and upvalues for a function at a given level of the stack:
 >
@@ -2598,7 +2598,7 @@ and upvalues for a function at a given level of the stack:
 >
 
 ==============================================================================
-4.3  Hooks                                        *lrv-hooks* *lrv-debugHooks*
+4.3  Hooks                                        *lrv50-hooks* *lrv50-debugHooks*
 
 Lua offers a mechanism of hooks, which are user-defined C functions that are
 called during the program execution. A hook may be called in four different
@@ -2609,12 +2609,12 @@ identifies these events with the following constants:$LUA_HOOKCALL$,
 $LUA_HOOKRET$(or$LUA_HOOKTAILRET$, see below),$LUA_HOOKLINE$, and
 $LUA_HOOKCOUNT$.
 
-                                                                *lrv-lua_Hook*
+                                                                *lrv50-lua_Hook*
 A hook has type$lua_Hook$, defined as follows:
 >
        typedef void (*lua_Hook) (lua_State *L, lua_Debug *ar);
 >
-                                                             *lrv-lua_sethook*
+                                                             *lrv50-lua_sethook*
 You can set the hook with the following function:
 >
        int lua_sethook (lua_State *L, lua_Hook func, int mask, int count);
@@ -2639,7 +2639,7 @@ explained below:
 
 A hook is disabled by setting$mask$to zero.
 
-                *lrv-lua_gethook* *lrv-lua_gethookmask* *lrv-lua_gethookcount*
+                *lrv50-lua_gethook* *lrv50-lua_gethookmask* *lrv50-lua_gethookcount*
 You can get the current hook, the current mask, and the current count with the
 following functions:
 >
@@ -2661,7 +2661,7 @@ without any calls to hooks.
 
 
 ==============================================================================
-5  STANDARD LIBRARIES                                                *lrv-Lib*
+5  STANDARD LIBRARIES                                                *lrv50-Lib*
 ==============================================================================
 
 
@@ -2695,7 +2695,7 @@ declared in$lualib.h$.
 
 
 ==============================================================================
-5.1  Basic Functions                                            *lrv-libBasic*
+5.1  Basic Functions                                            *lrv50-libBasic*
 
 
 The basic library provides some core functions to Lua. If you do not include
@@ -2703,21 +2703,21 @@ this library in your application, you should check carefully whether you need
 to provide some alternative implementation for some of its facilities.
 
 
-$assert (v [, message])$                                          *lrv-assert*
+$assert (v [, message])$                                          *lrv50-assert*
 ------------------------
 Issues an error when the value of its argument$v$is#nil#or#false#; otherwise,
 returns this value.$message$is an error message; when absent, it defaults to
 "assertion failed!"
 
-$collectgarbage ([limit])$                                *lrv-collectgarbage*
+$collectgarbage ([limit])$                                *lrv50-collectgarbage*
 --------------------------
 Sets the garbage-collection threshold to the given limit (in Kbytes) and
 checks it against the byte counter. If the new threshold is smaller than the
 byte counter, then Lua immediately runs the garbage collector (see
-|lrv-langGC|). If$limit$is absent, it defaults to zero (thus forcing a
+|lrv50-langGC|). If$limit$is absent, it defaults to zero (thus forcing a
 garbage-collection cycle).
 
-$dofile (filename)$                                               *lrv-dofile*
+$dofile (filename)$                                               *lrv50-dofile*
 -------------------
 Opens the named file and executes its contents as a Lua chunk. When called
 without arguments,$dofile$executes the contents of the standard input
@@ -2725,7 +2725,7 @@ without arguments,$dofile$executes the contents of the standard input
 errors,$dofile$propagates the error to its caller (that is, it does not run in
 protected mode).
 
-$error (message [, level])$                                        *lrv-error*
+$error (message [, level])$                                        *lrv50-error*
 ---------------------------
 Terminates the last protected function called and returns$message$as the error
 message. Function$error$never returns.
@@ -2735,13 +2735,13 @@ level 1 (the default), the error position is where the $error$function was
 called. Level 2 points the error to where the function that called$error$was
 called; and so on.
 
-$_G$                                                                  *lrv-_G*
+$_G$                                                                  *lrv50-_G*
 -----
 A global variable (not a function) that holds the global environment (that
 is,$_G._G = _G$). Lua itself does not use this variable; changing its value
 does not affect any environment. (Use$setfenv$to change environments.)
 
-$getfenv (f)$                                                    *lrv-getfenv*
+$getfenv (f)$                                                    *lrv50-getfenv*
 -------------
 Returns the current environment in use by the function.$f$can be a Lua
 function or a number, which specifies the function at that stack level: level
@@ -2752,18 +2752,18 @@ for$f$is 1.
 If the environment has a$"__fenv"$field, returns the associated value, instead
 of the environment.
 
-$getmetatable (object)$                                     *lrv-getmetatable*
+$getmetatable (object)$                                     *lrv50-getmetatable*
 -----------------------
 If the object does not have a metatable, returns#nil#. Otherwise, if the
 object's metatable has a$"__metatable"$field, returns the associated value.
 Otherwise, returns the metatable of the given object.
 
-$gcinfo ()$                                                       *lrv-gcinfo*
+$gcinfo ()$                                                       *lrv50-gcinfo*
 -----------
 Returns two results: the number of Kbytes of dynamic memory that Lua is using
 and the current garbage collector threshold (also in Kbytes).
 
-$ipairs (t)$                                                      *lrv-ipairs*
+$ipairs (t)$                                                      *lrv50-ipairs*
 ------------
 Returns an iterator function, the table$t$, and 0, so that the construction
 >
@@ -2772,14 +2772,14 @@ Returns an iterator function, the table$t$, and 0, so that the construction
 will iterate over the pairs ($1,t[1]$), ($2,t[2]$), ..., up to the first
 integer key with a nil value in the table.
 
-$loadfile (filename)$                                           *lrv-loadfile*
+$loadfile (filename)$                                           *lrv50-loadfile*
 ---------------------
 Loads a file as a Lua chunk (without running it). If there are no errors,
 returns the compiled chunk as a function; otherwise, returns#nil#plus the
 error message. The environment of the returned function is the global
 environment.
 
-$loadlib (libname, funcname)$                                    *lrv-loadlib*
+$loadlib (libname, funcname)$                                    *lrv50-loadlib*
 -----------------------------
 Links the program with the dynamic C library$libname$. Inside this library,
 looks for a function$funcname$and returns this function as a C function.
@@ -2791,7 +2791,7 @@ This function is not supported by ANSI C. As such, it is only available on
 some platforms (Windows, Linux, Solaris, BSD, plus other Unix systems that
 support the$dlfcn$standard).
 
-$loadstring (string [, chunkname])$                           *lrv-loadstring*
+$loadstring (string [, chunkname])$                           *lrv50-loadstring*
 -----------------------------------
 Loads a string as a Lua chunk (without running it). If there are no errors,
 returns the compiled chunk as a function; otherwise, returns#nil#plus the
@@ -2805,7 +2805,7 @@ To load and run a given string, use the idiom
 >
       assert(loadstring(s))()
 >
-$next (table [, index])$                                            *lrv-next*
+$next (table [, index])$                                            *lrv50-next*
 ------------------------
 Allows a program to traverse all fields of a table. Its first argument is a
 table and its second argument is an index in this table.$next$returns the next
@@ -2824,7 +2824,7 @@ order, use a numerical#for#or the$ipairs$function.)
 The behavior of$next$is@undefined@if, during the traversal, you assign any
 value to a non-existent field in the table.
 
-$pairs (t)$                                                        *lrv-pairs*
+$pairs (t)$                                                        *lrv50-pairs*
 -----------
 Returns the$next$function and the table$t$(plus a#nil#), so that the
 construction
@@ -2833,7 +2833,7 @@ construction
 >
 will iterate over all key-value pairs of table$t$.
 
-$pcall (f, arg1, arg2, ...)$                                       *lrv-pcall*
+$pcall (f, arg1, arg2, ...)$                                       *lrv50-pcall*
 ----------------------------
 Calls function$f$with the given arguments in protected mode. That means that
 any error inside$f$is not propagated; instead,$pcall$catches the error and
@@ -2842,31 +2842,31 @@ is#true#if the call succeeds without errors. In such case,$pcall$also returns
 all results from the call, after this first result. In case of any
 error,$pcall$returns#false#plus the error message.
 
-$print (e1, e2, ...)$                                              *lrv-print*
+$print (e1, e2, ...)$                                              *lrv50-print*
 ---------------------
 Receives any number of arguments, and prints their values in$stdout$, using
 the$tostring$function to convert them to strings. This function is not
 intended for formatted output, but only as a quick way to show a value,
 typically for debugging. For formatted output, use$format$(see
-|lrv-string.format|).
+|lrv50-string.format|).
 
-$rawequal (v1, v2)$                                             *lrv-rawequal*
+$rawequal (v1, v2)$                                             *lrv50-rawequal*
 -------------------
 Checks whether$v1$is equal to$v2$, without invoking any metamethod. Returns a
 boolean.
 
-$rawget (table, index)$                                           *lrv-rawget*
+$rawget (table, index)$                                           *lrv50-rawget*
 -----------------------
 Gets the real value of$table[index]$, without invoking any metamethod.$table$
 must be a table;$index$is any value different from#nil#.
 
-$rawset (table, index, value)$                                    *lrv-rawset*
+$rawset (table, index, value)$                                    *lrv50-rawset*
 ------------------------------
 Sets the real value of$table[index]$to$value$, without invoking any
 metamethod.$table$must be a table,$index$is any value different from#nil#,
 and$value$is any Lua value.
 
-$require (packagename)$                                          *lrv-require*
+$require (packagename)$                                          *lrv50-require*
 -----------------------
 Loads the given package. The function starts by looking into the table
 $_LOADED$to determine whether$packagename$is already loaded. If it is,
@@ -2902,7 +2902,7 @@ While running a file,$require$defines the global variable$_REQUIREDNAME$with
 the package name. The package being loaded always runs within the global
 environment.
 
-$setfenv (f, table)$                                             *lrv-setfenv*
+$setfenv (f, table)$                                             *lrv50-setfenv*
 --------------------
 Sets the current environment to be used by the given function.$f$can be a Lua
 function or a number, which specifies the function at that stack level: level
@@ -2913,13 +2913,13 @@ running thread.
 
 If the original environment has a$"__fenv"$field,$setfenv$raises an error.
 
-$setmetatable (table, metatable)$                           *lrv-setmetatable*
+$setmetatable (table, metatable)$                           *lrv50-setmetatable*
 ---------------------------------
 Sets the metatable for the given table. (You cannot change the metatable of a
 userdata from Lua.) If$metatable$is#nil#, removes the metatable of the given
 table. If the original metatable has a$"__metatable"$field, raises an error.
 
-$tonumber (e [, base])$                                         *lrv-tonumber*
+$tonumber (e [, base])$                                         *lrv50-tonumber*
 -----------------------
 Tries to convert its argument to a number. If the argument is already a number
 or a string convertible to a number, then$tonumber$returns that number;
@@ -2930,26 +2930,26 @@ be any integer between 2 and 36, inclusive. In bases above 10, the
 letter$`A'$(in either upper or lower case) represents 10,$`B'$represents 11,
 and so forth, with$`Z'$representing 35. In base 10 (the default), the number
 may have a decimal part, as well as an optional exponent part (see
-|lrv-langCoercion|). In other bases, only unsigned integers are accepted.
+|lrv50-langCoercion|). In other bases, only unsigned integers are accepted.
 
-$tostring (e)$                                                  *lrv-tostring*
+$tostring (e)$                                                  *lrv50-tostring*
 --------------
 Receives an argument of any type and converts it to a string in a reasonable
 format. For complete control of how numbers are converted, use$format$(see
-|lrv-string.format|).
+|lrv50-string.format|).
 
-                                                              *lrv-__tostring*
+                                                              *lrv50-__tostring*
 If the metatable of$e$has a$"__tostring"$field,$tostring$calls the
 corresponding value with$e$as argument, and uses the result of the call as its
 result.
 
-$type (v)$                                                          *lrv-type*
+$type (v)$                                                          *lrv50-type*
 ----------
 Returns the type of its only argument, coded as a string. The possible results
 of this function are$"nil"$(a string, not the value#nil#),$"number"$,
 $"string"$,$"boolean$,$"table"$,$"function"$,$"thread"$, and$"userdata"$.
 
-$unpack (list)$                                                   *lrv-unpack*
+$unpack (list)$                                                   *lrv50-unpack*
 ---------------
 Returns all elements from the given list. This function is equivalent to
 >
@@ -2958,12 +2958,12 @@ Returns all elements from the given list. This function is equivalent to
 except that the above code can be written only for a fixed@n@. The number@n@is
 the size of the list, as defined for the$table.getn$function.
 
-$_VERSION$                                                      *lrv-_VERSION*
+$_VERSION$                                                      *lrv50-_VERSION*
 ----------
 A global variable (not a function) that holds a string containing the current
 interpreter version. The current content of this string is$"Lua 5.0"$.
 
-$xpcall (f, err)$                                                 *lrv-xpcall*
+$xpcall (f, err)$                                                 *lrv50-xpcall*
 -----------------
 This function is similar to$pcall$, except that you can set a new error
 handler.
@@ -2978,20 +2978,20 @@ plus the result from$err$.
 
 
 ==============================================================================
-5.2  Coroutine Manipulation                                      *lrv-libCoro*
+5.2  Coroutine Manipulation                                      *lrv50-libCoro*
 
 
 The operations related to coroutines comprise a sub-library of the basic
-library and come inside the table$coroutine$. See |lrv-langCoro| for a general
+library and come inside the table$coroutine$. See |lrv50-langCoro| for a general
 description of coroutines.
 
 
-$coroutine.create (f)$                                  *lrv-coroutine.create*
+$coroutine.create (f)$                                  *lrv50-coroutine.create*
 ----------------------
 Creates a new coroutine, with body$f$.$f$must be a Lua function. Returns this
 new coroutine, an object with type$"thread"$.
 
-$coroutine.resume (co, val1, ...)$                      *lrv-coroutine.resume*
+$coroutine.resume (co, val1, ...)$                      *lrv50-coroutine.resume*
 ----------------------------------
 Starts or continues the execution of coroutine$co$. The first time you resume
 a coroutine, it starts running its body. The arguments$val1$, ... go as the
@@ -3003,7 +3003,7 @@ passed to$yield$(if the coroutine yields) or any values returned by the body
 function (if the coroutine terminates). If there is any error,$resume$returns
 #false#plus the error message.
 
-$coroutine.status (co)$                                 *lrv-coroutine.status*
+$coroutine.status (co)$                                 *lrv50-coroutine.status*
 -----------------------
 Returns the status of coroutine$co$, as a string:$"running"$, if the coroutine
 is running (that is, it called$status$);$"suspended"$, if the coroutine is
@@ -3011,7 +3011,7 @@ suspended in a call to$yield$, or if it has not started running yet; and
 $"dead"$if the coroutine has finished its body function, or if it has stopped
 with an error.
 
-$coroutine.wrap (f)$                                      *lrv-coroutine.wrap*
+$coroutine.wrap (f)$                                      *lrv50-coroutine.wrap*
 --------------------
 Creates a new coroutine, with body$f$.$f$must be a Lua function. Returns a
 function that resumes the coroutine each time it is called. Any arguments
@@ -3019,7 +3019,7 @@ passed to the function behave as the extra arguments to$resume$. Returns the
 same values returned by$resume$, except the first boolean. In case of error,
 propagates the error.
 
-$coroutine.yield (val1, ...)$                            *lrv-coroutine.yield*
+$coroutine.yield (val1, ...)$                            *lrv50-coroutine.yield*
 -----------------------------
 Suspends the execution of the calling coroutine. The coroutine cannot be
 running neither a C function, nor a metamethod, nor an iterator. Any arguments
@@ -3027,7 +3027,7 @@ to$yield$go as extra results to$resume$.
 
 
 ==============================================================================
-5.3 - String Manipulation                                      *lrv-libString*
+5.3 - String Manipulation                                      *lrv50-libString*
 
 
 This library provides generic functions for string manipulation, such as
@@ -3040,7 +3040,7 @@ so on.
 The string library provides all its functions inside the table$string$.
 
 
-$string.byte (s [, i])$                                      *lrv-string.byte*
+$string.byte (s [, i])$                                      *lrv50-string.byte*
 -----------------------
 Returns the internal numerical code of the$i$-th character of$s$, or#nil#if
 the index is out of range. If$i$is absent, then it is assumed to be 1.$i$may
@@ -3048,7 +3048,7 @@ be negative.
 
 Note that numerical codes are not necessarily portable across platforms.
 
-$string.char (i1, i2, ...)$                                  *lrv-string.char*
+$string.char (i1, i2, ...)$                                  *lrv50-string.char*
 ---------------------------
 Receives 0 or more integers. Returns a string with length equal to the number
 of arguments, in which each character has the internal numerical code equal to
@@ -3056,13 +3056,13 @@ its correspondent argument.
 
 Note that numerical codes are not necessarily portable across platforms.
 
-$string.dump (function)$                                     *lrv-string.dump*
+$string.dump (function)$                                     *lrv50-string.dump*
 ------------------------
 Returns a binary representation of the given function, so that a later
 $loadstring$on that string returns a copy of the function.$function$must be a
 Lua function without upvalues.
 
-$string.find (s, pattern [, init [, plain]])$                *lrv-string.find*
+$string.find (s, pattern [, init [, plain]])$                *lrv50-string.find*
 ---------------------------------------------
 Looks for the first@match@of$pattern$in the string$s$. If it finds one,
 then$find$returns the indices of$s$where this occurrence starts and ends;
@@ -3075,22 +3075,22 @@ function does a plain "find substring" operation, with no characters in
 $pattern$being considered "magic". Note that if$plain$is given, then$init$must
 be given too.
 
-$string.len (s)$                                              *lrv-string.len*
+$string.len (s)$                                              *lrv50-string.len*
 ----------------
 Receives a string and returns its length. The empty string$""$has length 0.
 Embedded zeros are counted, so$"a\000b\000c"$has length 5.
 
-$string.lower (s)$                                          *lrv-string.lower*
+$string.lower (s)$                                          *lrv50-string.lower*
 ------------------
 Receives a string and returns a copy of that string with all uppercase letters
 changed to lowercase. All other characters are left unchanged. The definition
 of what is an uppercase letter depends on the current locale.
 
-$string.rep (s, n)$                                           *lrv-string.rep*
+$string.rep (s, n)$                                           *lrv50-string.rep*
 -------------------
 Returns a string that is the concatenation of$n$copies of the string$s$.
 
-$string.sub (s, i [, j])$                                     *lrv-string.sub*
+$string.sub (s, i [, j])$                                     *lrv50-string.sub*
 -------------------------
 Returns the substring of$s$that starts at$i$and continues until$j$;$i$and$j$
 may be negative. If$j$is absent, then it is assumed to be equal to@-1@(which
@@ -3098,13 +3098,13 @@ is the same as the string length). In particular, the call$string.sub(s,1,j)$
 returns a prefix of$s$with length$j$, and$string.sub(s,-i)$returns a suffix
 of$s$with length$i$.
 
-$string.upper (s)$                                          *lrv-string.upper*
+$string.upper (s)$                                          *lrv50-string.upper*
 ------------------
 Receives a string and returns a copy of that string with all lowercase letters
 changed to uppercase. All other characters are left unchanged. The definition
 of what is a lowercase letter depends on the current locale.
 
-$string.format (formatstring, e1, e2, ...)$                *lrv-string.format*
+$string.format (formatstring, e1, e2, ...)$                *lrv50-string.format*
 -------------------------------------------
 Returns a formatted version of its variable number of arguments following the
 description given in its first argument (which must be a string). The format
@@ -3130,7 +3130,7 @@ simulated with$"%"..width.."g"$.
 
 String values to be formatted with$%s$cannot contain embedded zeros.
 
-$string.gfind (s, pat)$                                     *lrv-string.gfind*
+$string.gfind (s, pat)$                                     *lrv50-string.gfind*
 -----------------------
 Returns an iterator function that, each time it is called, returns the next
 captures from pattern$pat$over string$s$.
@@ -3153,7 +3153,7 @@ next example collects all pairs$key=value$from the given string into a table:
     t[k] = v
   end
 >
-$string.gsub (s, pat, repl [, n])$                           *lrv-string.gsub*
+$string.gsub (s, pat, repl [, n])$                           *lrv50-string.gsub*
 ----------------------------------
 Returns a copy of$s$in which all occurrences of the pattern$pat$have been
 replaced by a replacement string specified by$repl$.$gsub$also returns, as a
@@ -3198,7 +3198,7 @@ Here are some examples:
        end)
    --> x="lua_5.0.tar.gz"
 >
-                                                                *lrv-patterns*
+                                                                *lrv50-patterns*
 Patterns~
 --------
 
@@ -3291,13 +3291,13 @@ A pattern cannot contain embedded zeros.  Use$%z$instead.
 
 
 ==============================================================================
-5.4  Table Manipulation                                         *lrv-libTable*
+5.4  Table Manipulation                                         *lrv50-libTable*
 
 
 This library provides generic functions for table manipulation. It provides
 all its functions inside the table$table$.
 
-                                                               *lrv-tablesize*
+                                                               *lrv50-tablesize*
 Most functions in the table library assume that the table represents an array
 or a list. For those functions, an important concept is the@size@of the array.
 There are three ways to specify that size:
@@ -3309,15 +3309,15 @@ There are three ways to specify that size:
   #o# implicit size --- Otherwise, the size of the object is one less the
       first integer index with a#nil#value.
 
-For more details, see |lrv-table.getn| and |lrv-table.setn|.
+For more details, see |lrv50-table.getn| and |lrv50-table.setn|.
 
-$table.concat (table [, sep [, i [, j]]])$                  *lrv-table.concat*
+$table.concat (table [, sep [, i [, j]]])$                  *lrv50-table.concat*
 ------------------------------------------
 Returns$table[i]..sep..table[i+1] ... sep..table[j]$. The default value
 for$sep$is the empty string, the default for$i$is 1, and the default for$j$is
 the size of the table. If$i$is greater than$j$, returns the empty string.
 
-$table.foreach (table, f)$                                 *lrv-table.foreach*
+$table.foreach (table, f)$                                 *lrv50-table.foreach*
 --------------------------
 Executes the given$f$over all elements of$table$. For each element,$f$is
 called with the index and respective value as arguments. If$f$returns a
@@ -3326,15 +3326,15 @@ final value of$foreach$.
 
 See the$next$function for extra information about table traversals.
 
-$table.foreachi (table, f)$                               *lrv-table.foreachi*
+$table.foreachi (table, f)$                               *lrv50-table.foreachi*
 ---------------------------
 Executes the given$f$over the numerical indices of$table$. For each
 index,$f$is called with the index and respective value as arguments. Indices
 are visited in sequential order, from 1 to$n$, where$n$is the size of the
-table (see |lrv-tablesize|). If$f$returns a non-#nil#value, then the loop is
+table (see |lrv50-tablesize|). If$f$returns a non-#nil#value, then the loop is
 broken and this value is returned as the result of$foreachi$.
 
-$table.getn (table)$                                          *lrv-table.getn*
+$table.getn (table)$                                          *lrv50-table.getn*
 --------------------
 Returns the size of a table, when seen as a list. If the table has an$n$field
 with a numeric value, this value is the size of the table. Otherwise, if there
@@ -3342,10 +3342,10 @@ was a previous call to$table.setn$over this table, the respective value is
 returned. Otherwise, the size is one less the first integer index with a#nil#
 value.
 
-$table.sort (table [, comp])$                                 *lrv-table.sort*
+$table.sort (table [, comp])$                                 *lrv50-table.sort*
 -----------------------------
 Sorts table elements in a given order,@in-place@, from$table[1]$to$table[n]$,
-where$n$is the size of the table (see |lrv-tablesize|). If$comp$is given, then
+where$n$is the size of the table (see |lrv50-tablesize|). If$comp$is given, then
 it must be a function that receives two table elements, and returns true when
 the first is less than the second (so that$not comp(a[i+1],a[i])$will be true
 after the sort). If$comp$is not given, then the standard Lua operator$<$is
@@ -3354,24 +3354,24 @@ used instead.
 The sort algorithm is@not@stable, that is, elements considered equal by the
 given order may have their relative positions changed by the sort.
 
-$table.insert (table, [pos,] value)$                        *lrv-table.insert*
+$table.insert (table, [pos,] value)$                        *lrv50-table.insert*
 ------------------------------------
 Inserts element$value$at position$pos$in$table$, shifting up other elements to
 open space, if necessary. The default value for$pos$is$n+1$, where$n$is the
-size of the table (see |lrv-tablesize|), so that a call$table.insert(t,x)$
+size of the table (see |lrv50-tablesize|), so that a call$table.insert(t,x)$
 inserts$x$at the end of table$t$. This function also updates the size of the
 table by calling$table.setn(table, n+1)$.
 
-$table.remove (table [, pos])$                              *lrv-table.remove*
+$table.remove (table [, pos])$                              *lrv50-table.remove*
 ------------------------------
 Removes from$table$the element at position$pos$, shifting down other elements
 to close the space, if necessary. Returns the value of the removed element.
 The default value for$pos$is$n$, where$n$is the size of the table (see
-|lrv-tablesize|), so that a call$table.remove(t)$removes the last element of
+|lrv50-tablesize|), so that a call$table.remove(t)$removes the last element of
 table$t$. This function also updates the size of the table by calling
 $table.setn(table, n-1)$.
 
-$table.setn (table, n)$                                       *lrv-table.setn*
+$table.setn (table, n)$                                       *lrv50-table.setn*
 -----------------------
 Updates the size of a table. If the table has a field$"n"$with a numerical
 value, that value is changed to the given$n$. Otherwise, it updates an
@@ -3379,16 +3379,16 @@ internal state so that subsequent calls to$table.getn(table)$return$n$.
 
 
 ==============================================================================
-5.5  Mathematical Functions                                      *lrv-libMath*
+5.5  Mathematical Functions                                      *lrv50-libMath*
 
 
-                *lrv-math.abs* *lrv-math.acos* *lrv-math.asin* *lrv-math.atan*
-                *lrv-math.atan2* *lrv-math.ceil* *lrv-math.cos* *lrv-math.deg*
-               *lrv-math.exp* *lrv-math.floor* *lrv-math.log* *lrv-math.log10*
-                    *lrv-math.max* *lrv-math.min* *lrv-math.mod* *lrv-math.pi*
-                  *lrv-math.pow* *lrv-math.rad* *lrv-math.sin* *lrv-math.sqrt*
-            *lrv-math.tan* *lrv-math.frexp* *lrv-math.ldexp* *lrv-math.random*
-                                                         *lrv-math.randomseed*
+                *lrv50-math.abs* *lrv50-math.acos* *lrv50-math.asin* *lrv50-math.atan*
+                *lrv50-math.atan2* *lrv50-math.ceil* *lrv50-math.cos* *lrv50-math.deg*
+               *lrv50-math.exp* *lrv50-math.floor* *lrv50-math.log* *lrv50-math.log10*
+                    *lrv50-math.max* *lrv50-math.min* *lrv50-math.mod* *lrv50-math.pi*
+                  *lrv50-math.pow* *lrv50-math.rad* *lrv50-math.sin* *lrv50-math.sqrt*
+            *lrv50-math.tan* *lrv50-math.frexp* *lrv50-math.ldexp* *lrv50-math.random*
+                                                         *lrv50-math.randomseed*
 This library is an interface to most of the functions of the standard C math
 library. (Some have slightly different names.) It provides all its functions
 inside the table$math$. In addition, it registers the global$__pow$for the
@@ -3422,7 +3422,7 @@ seeds produce equal sequences of numbers.
 
 
 ==============================================================================
-5.6  Input and Output Facilities                                   *lrv-libIO*
+5.6  Input and Output Facilities                                   *lrv50-libIO*
 
 
 The I/O library provides two different styles for file manipulation. The first
@@ -3447,15 +3447,15 @@ error message as a second result) and some value different from#nil#on
 success.
 
 
-$io.close ([file])$                                             *lrv-io.close*
+$io.close ([file])$                                             *lrv50-io.close*
 -------------------
 Equivalent to$file:close$. Without a$file$, closes the default output file.
 
-$io.flush ()$                                                   *lrv-io.flush*
+$io.flush ()$                                                   *lrv50-io.flush*
 -------------
 Equivalent to$file:flush$over the default output file.
 
-$io.input ([file])$                                             *lrv-io.input*
+$io.input ([file])$                                             *lrv50-io.input*
 -------------------
 When called with a file name, it opens the named file (in text mode), and sets
 its handle as the default input file. When called with a file handle, it
@@ -3465,7 +3465,7 @@ parameters, it returns the current default input file.
 In case of errors this function raises the error, instead of returning an
 error code.
 
-$io.lines ([filename])$                                         *lrv-io.lines*
+$io.lines ([filename])$                                         *lrv50-io.lines*
 -----------------------
 Opens the given file name in read mode and returns an iterator function that,
 each time it is called, returns a new line from the file. Therefore, the
@@ -3481,7 +3481,7 @@ The call$io.lines()$(without a file name) is equivalent to
 $io.input():lines()$, that is, it iterates over the lines of the default input
 file.
 
-$io.open (filename [, mode])$                                    *lrv-io.open*
+$io.open (filename [, mode])$                                    *lrv50-io.open*
 -----------------------------
 This function opens a file, in the mode specified in the string$mode$. It
 returns a new file handle, or, in case of errors,#nil#plus an error message.
@@ -3500,26 +3500,26 @@ The$mode$string may also have a$b$at the end, which is needed in some systems
 to open the file in binary mode. This string is exactly what is used in the
 standard C function$fopen$.
 
-$io.output ([file])$                                           *lrv-io.output*
+$io.output ([file])$                                           *lrv50-io.output*
 --------------------
 Similar to$io.input$, but operates over the default output file.
 
-$io.read (format1, ...)$                                         *lrv-io.read*
+$io.read (format1, ...)$                                         *lrv50-io.read*
 ------------------------
 Equivalent to$io.input():read$.
 
-$io.tmpfile ()$                                               *lrv-io.tmpfile*
+$io.tmpfile ()$                                               *lrv50-io.tmpfile*
 ---------------
 Returns a handle for a temporary file. This file is open in update mode and it
 is automatically removed when the program ends.
 
-$io.type (obj)$                                                  *lrv-io.type*
+$io.type (obj)$                                                  *lrv50-io.type*
 ---------------
 Checks whether$obj$is a valid file handle. Returns the string$"file"$if$obj$is
 an open file handle,$"closed file"$if$obj$is a closed file handle, and#nil#if
 $obj$is not a file handle.
 
-$io.write (value1, ...)$                                        *lrv-io.write*
+$io.write (value1, ...)$                                        *lrv50-io.write*
 ------------------------
 Equivalent to$io.output():write$.
 
@@ -3589,24 +3589,24 @@ $string.format$before$write$.
 
 
 ==============================================================================
-5.7  Operating System Facilities                                   *lrv-libOS*
+5.7  Operating System Facilities                                   *lrv50-libOS*
 
 
 This library is implemented through table$os$.
 
 
-$os.clock ()$                                                   *lrv-os.clock*
+$os.clock ()$                                                   *lrv50-os.clock*
 -------------
 Returns an approximation of the amount of CPU time used by the program, in
 seconds.
 
-$os.date ([format [, time]])$                                    *lrv-os.date*
+$os.date ([format [, time]])$                                    *lrv50-os.date*
 -----------------------------
 Returns a string or a table containing date and time, formatted according to
 the given string$format$.
 
 If the$time$argument is present, this is the time to be formatted (see the
-$os.time$function |lrv-os.time| for a description of this value). Otherwise,
+$os.time$function |lrv50-os.time| for a description of this value). Otherwise,
 $date$formats the current time.
 
 If$format$starts with$`!'$,then the date is formatted in Coordinated Universal
@@ -3622,38 +3622,38 @@ When called without arguments,$date$returns a reasonable date and time
 representation that depends on the host system and on the current locale (that
 is,$os.date()$is equivalent to$os.date("%c")$).
 
-$os.difftime (t2, t1)$                                       *lrv-os.difftime*
+$os.difftime (t2, t1)$                                       *lrv50-os.difftime*
 ----------------------
 Returns the number of seconds from time$t1$to time$t2$. In Posix, Windows, and
 some other systems, this value is exactly$t2 - t1$.
 
-$os.execute (command)$                                        *lrv-os.execute*
+$os.execute (command)$                                        *lrv50-os.execute*
 ----------------------
 This function is equivalent to the C function$system$. It passes$command$to be
 executed by an operating system shell. It returns a status code, which is
 system-dependent.
 
-$os.exit ([code])$                                               *lrv-os.exit*
+$os.exit ([code])$                                               *lrv50-os.exit*
 ------------------
 Calls the C function$exit$, with an optional$code$, to terminate the host
 program. The default value for$code$is the success code.
 
-$os.getenv (varname)$                                          *lrv-os.getenv*
+$os.getenv (varname)$                                          *lrv50-os.getenv*
 ---------------------
 Returns the value of the process environment variable$varname$, or#nil#if the
 variable is not defined.
 
-$os.remove (filename)$                                         *lrv-os.remove*
+$os.remove (filename)$                                         *lrv50-os.remove*
 ----------------------
 Deletes the file with the given name. If this function fails, it returns#nil#,
 plus a string describing the error.
 
-$os.rename (oldname, newname)$                                 *lrv-os.rename*
+$os.rename (oldname, newname)$                                 *lrv50-os.rename*
 ------------------------------
 Renames file named$oldname$to$newname$. If this function fails, it returns
 #nil#, plus a string describing the error.
 
-$os.setlocale (locale [, category])$                        *lrv-os.setlocale*
+$os.setlocale (locale [, category])$                        *lrv50-os.setlocale*
 ------------------------------------
 Sets the current locale of the program.$locale$is a string specifying a
 locale;$category$is an optional string describing which category to change:
@@ -3661,12 +3661,12 @@ $"all"$,$"collate"$,$"ctype"$,$"monetary"$,$"numeric"$, or$"time"$; the
 default category is$"all"$. The function returns the name of the new locale,
 or#nil#if the request cannot be honored.
 
-$os.time ([table])$                                              *lrv-os.time*
+$os.time ([table])$                                              *lrv50-os.time*
 -------------------
 Returns the current time when called without arguments, or a time representing
 the date and time specified by the given table. This table must have fields
 $year$,$month$, and$day$, and may have fields$hour$,$min$,$sec$, and$isdst$
-(for a description of these fields, see the$os.date$function |lrv-os.date|).
+(for a description of these fields, see the$os.date$function |lrv50-os.date|).
 
 The returned value is a number, whose meaning depends on your system. In
 Posix, Windows, and some other systems, this number counts the number of
@@ -3674,7 +3674,7 @@ seconds since some given start time (the "epoch"). In other systems, the
 meaning is not specified, and the number returned by$time$can be used only as
 an argument to$date$and$difftime$.
 
-$os.tmpname ()$                                               *lrv-os.tmpname*
+$os.tmpname ()$                                               *lrv50-os.tmpname*
 ---------------
 Returns a string with a file name that can be used for a temporary file. The
 file must be explicitly opened before its use and removed when no longer
@@ -3687,7 +3687,7 @@ process to create a file with the same name.
 
 
 ==============================================================================
-5.8  The Reflexive Debug Interface                              *lrv-libDebug*
+5.8  The Reflexive Debug Interface                              *lrv50-libDebug*
 
 
 The$debug$library provides the functionality of the debug interface to Lua
@@ -3701,7 +3701,7 @@ code.
 All functions in this library are provided inside a$debug$table.
 
 
-$debug.debug ()$                                             *lrv-debug.debug*
+$debug.debug ()$                                             *lrv50-debug.debug*
 ----------------
 Enters an interactive mode with the user, running each string that the user
 enters. Using simple commands and other debug facilities, the user can inspect
@@ -3712,13 +3712,13 @@ caller continues its execution.
 Note that commands for$debug.debug$are not lexically nested with any function,
 so they have no direct access to local variables.
 
-$debug.gethook ()$                                         *lrv-debug.gethook*
+$debug.gethook ()$                                         *lrv50-debug.gethook*
 ------------------
 Returns the current hook settings, as three values: the current hook function,
 the current hook mask, and the current hook count (as set by the
 $debug.sethook$function).
 
-$debug.getinfo (function [, what])$                        *lrv-debug.getinfo*
+$debug.getinfo (function [, what])$                        *lrv50-debug.getinfo*
 -----------------------------------
 This function returns a table with information about a function. You can give
 the function directly, or you can give a number as the value of$function$,
@@ -3736,7 +3736,7 @@ For instance, the expression$debug.getinfo(1,"n").name$returns the name of the
 current function, if a reasonable name can be found, and$debug.getinfo(print)$
 returns a table with all available information about the$print$function.
 
-$debug.getlocal (level, local)$                           *lrv-debug.getlocal*
+$debug.getlocal (level, local)$                           *lrv50-debug.getlocal*
 -------------------------------
 This function returns the name and the value of the local variable with index
 $local$of the function at level$level$of the stack. (The first parameter or
@@ -3745,13 +3745,13 @@ The function returns#nil#if there is no local variable with the given index,
 and raises an error when called with a$level$out of range. (You can call
 $debug.getinfo$to check whether the level is valid.)
 
-$debug.getupvalue (func, up)$                           *lrv-debug.getupvalue*
+$debug.getupvalue (func, up)$                           *lrv50-debug.getupvalue*
 -----------------------------
 This function returns the name and the value of the upvalue with index$up$of
 the function$func$. The function returns#nil#if there is no upvalue with the
 given index.
 
-$debug.setlocal (level, local, value)$                    *lrv-debug.setlocal*
+$debug.setlocal (level, local, value)$                    *lrv50-debug.setlocal*
 --------------------------------------
 This function assigns the value$value$to the local variable with index$local$
 of the function at level$level$of the stack. The function returns#nil#if there
@@ -3759,13 +3759,13 @@ is no local variable with the given index, and raises an error when called
 with a$level$out of range. (You can call$getinfo$to check whether the level is
 valid.)
 
-$debug.setupvalue (func, up, value)$                    *lrv-debug.setupvalue*
+$debug.setupvalue (func, up, value)$                    *lrv50-debug.setupvalue*
 ------------------------------------
 This function assigns the value$value$to the upvalue with index$up$of the
 function$func$. The function returns#nil#if there is no upvalue with the given
 index.
 
-$debug.sethook (hook, mask [, count])$                     *lrv-debug.sethook*
+$debug.sethook (hook, mask [, count])$                     *lrv50-debug.sethook*
 --------------------------------------
 Sets the given function as a hook. The string$mask$and the number$count$
 describe when the hook will be called. The string mask may have the following
@@ -3789,7 +3789,7 @@ and level 1 is the hook function), unless the event is$"tail return"$. In this
 case, Lua is only simulating the return, and a call to$getinfo$will return
 invalid data.
 
-$debug.traceback ([message])$                            *lrv-debug.traceback*
+$debug.traceback ([message])$                            *lrv50-debug.traceback*
 -----------------------------
 Returns a string with a traceback of the call stack. An optional$message$
 string is appended at the beginning of the traceback. This function is
@@ -3797,7 +3797,7 @@ typically used with$xpcall$to produce better error messages.
 
 
 ==============================================================================
-6  LUA STAND-ALONE                                       *lrv-lua* *lrv-LuaSA*
+6  LUA STAND-ALONE                                       *lrv50-lua* *lrv50-LuaSA*
 ==============================================================================
 
 
@@ -3877,7 +3877,7 @@ is a more portable solution.)
 
 
 ==============================================================================
-A  BIBLIOGRAPHY                                             *lrv-bibliography*
+A  BIBLIOGRAPHY                                             *lrv50-bibliography*
 ==============================================================================
 
 This help file is a minor adaptation from this main reference:
@@ -3905,7 +3905,7 @@ Lua is discussed in these references:
 
 
 ==============================================================================
-B  COPYRIGHT & LICENSES                                        *lrv-copyright*
+B  COPYRIGHT & LICENSES                                        *lrv50-copyright*
 ==============================================================================
 
 
@@ -3934,19 +3934,19 @@ SOFTWARE.
 
 
 ==============================================================================
-C  LUAREFVIM DOC               *luarefvim* *luarefvimdoc* *lrv-help* *lrv-doc*
+C  LUAREFVIM DOC               *luarefvim* *luarefvimdoc* *lrv50-help* *lrv50-doc*
 ==============================================================================
 
 
 This a Vim help file containing a reference for Lua 5.0, and it is -- with a
 few exceptions and adaptations -- a copy of the Lua 5.0 Reference Manual (see
-|lrv-bibliography|). For usage information, refer to |lrv-docUsage|; for
-instalation, refer to |lrv-docInstall|.
+|lrv50-bibliography|). For usage information, refer to |lrv50-docUsage|; for
+instalation, refer to |lrv50-docInstall|.
 
 This manual is composed of three parts: this file,$luarefvim.txt$, that is,
 the manual itself; a plugin file, $luarefvim.vim$, defining key bindings; and
-a help file syntax extension, $help.vim$. See |lrv-docInstall| for more
-information on these files. For copyright information, see |lrv-copyright|.
+a help file syntax extension, $help.vim$. See |lrv50-docInstall| for more
+information on these files. For copyright information, see |lrv50-copyright|.
 
 The main ideas and concepts on how to implement this reference were taken from
 Christian Habermann's CRefVim project
@@ -3954,7 +3954,7 @@ Christian Habermann's CRefVim project
 
 
 ==============================================================================
-C.1  Installation                                             *lrv-docInstall*
+C.1  Installation                                             *lrv50-docInstall*
 
 
 This reference consists of three files: the manual itself,$luarefvim.txt$,
@@ -3978,7 +3978,7 @@ installing help files, call$:help add-local-help$.
 
 
 ==============================================================================
-C.2  Usage                                                      *lrv-docUsage*
+C.2  Usage                                                      *lrv50-docUsage*
 
 
 The usage is really simple, and similar to CRefVim:
