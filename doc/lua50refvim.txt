@@ -3934,7 +3934,7 @@ SOFTWARE.
 
 
 ==============================================================================
-C  LUAREFVIM DOC               *luarefvim* *luarefvimdoc* *lrv50-help* *lrv50-doc*
+C  LUAREFVIM DOC               *lua50refvim* *lua50refvimdoc* *lrv50-help* *lrv50-doc*
 ==============================================================================
 
 
@@ -3943,8 +3943,8 @@ few exceptions and adaptations -- a copy of the Lua 5.0 Reference Manual (see
 |lrv50-bibliography|). For usage information, refer to |lrv50-docUsage|; for
 instalation, refer to |lrv50-docInstall|.
 
-This manual is composed of three parts: this file,$luarefvim.txt$, that is,
-the manual itself; a plugin file, $luarefvim.vim$, defining key bindings; and
+This manual is composed of three parts: this file,$lua50refvim.txt$, that is,
+the manual itself; a plugin file, $lua50refvim.vim$, defining key bindings; and
 a help file syntax extension, $help.vim$. See |lrv50-docInstall| for more
 information on these files. For copyright information, see |lrv50-copyright|.
 
@@ -3957,23 +3957,23 @@ Christian Habermann's CRefVim project
 C.1  Installation                                             *lrv50-docInstall*
 
 
-This reference consists of three files: the manual itself,$luarefvim.txt$,
-a plugin file,$luarefvim.vim$, to load key bindings, and a help file syntax
-extension$help.vim$. To install luarefvim, copy these files to their
+This reference consists of three files: the manual itself,$lua50refvim.txt$,
+a plugin file,$lua50refvim.vim$, to load key bindings, and a help file syntax
+extension$help.vim$. To install lua50refvim, copy these files to their
 respective locations:
 
      +-----------------+----------------+
      |# file          #|# location     #|
      + ----------------+----------------+
-     |$ luarefvim.txt $|$ doc          $|
-     |$ luarefvim.vim $|$ plugin       $|
+     |$ lua50refvim.txt $|$ doc          $|
+     |$ lua50refvim.vim $|$ plugin       $|
      |$ help.vim      $|$ after/syntax $|
      +-----------------+----------------+
 
 where #location# is relative to 'runtimepath', that is, $HOME/.vim for a local
 Un*x install or $HOME/vimfiles for a local Win32 install, for example.
 Finally, to generate the tags, change dir to$doc$above (where you installed
-$luarefvim.txt$), start Vim, and issue$:helptags .$For more information on
+$lua50refvim.txt$), start Vim, and issue$:helptags .$For more information on
 installing help files, call$:help add-local-help$.
 
 
