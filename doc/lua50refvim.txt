@@ -1,4 +1,4 @@
-*luarefvim.txt*        Lua 5.0 Reference Manual for Vim
+*lua50refvim.txt*        Lua 5.0 Reference Manual for Vim
                                 Vim version 6.0
 
 
