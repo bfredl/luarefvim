@@ -2,7 +2,7 @@
                                 Vim version 6.0
 
 
-                                                      *luaref* *Lua50-Reference*
+                                                      *lua50ref* *Lua50-Reference*
                              Lua Reference for Vim
                            =========================
                                  Version 0.1.0

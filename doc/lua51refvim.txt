@@ -2,7 +2,7 @@
                                 Vim version 7.0
 
 
-                                                      *luaref* *Lua51-Reference*
+                                                      *lua51ref* *Lua51-Reference*
                              Lua Reference for Vim
                            =========================
                                  Version 0.2.0
