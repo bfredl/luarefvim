@@ -1171,7 +1171,7 @@ That is, the access to a metamethod does not invoke other metamethods, and the
 access to objects with no metatables does not fail (it simply results
 in#nil#).
 
-$"add":$                                                           *lrv51-__add*
+$"add":$                                                           *__add*
 --------
 the$+$operation.
 
@@ -1200,29 +1200,29 @@ By using this function, the behavior of the$op1 + op2$is
          end
        end
 >
-$"sub":$                                                           *lrv51-__sub*
+$"sub":$                                                           *__sub*
 --------
 the$-$operation. Behavior similar to the "add" operation.
 
-$"mul":$                                                           *lrv51-__mul*
+$"mul":$                                                           *__mul*
 --------
 the$*$operation. Behavior similar to the "add" operation.
 
-$"div":$                                                           *lrv51-__div*
+$"div":$                                                           *__div*
 --------
 the$/$operation. Behavior similar to the "add" operation.
 
-$"mod":$                                                           *lrv51-__mod*
+$"mod":$                                                           *__mod*
 --------
 the$%$operation. Behavior similar to the "add" operation, with the
 operation$o1 - floor(o1/o2)*o2$as the primitive operation.
 
-$"pow":$                                                           *lrv51-__pow*
+$"pow":$                                                           *__pow*
 --------
 the$^$(exponentiation) operation. Behavior similar to the "add" operation,
 with the function$pow$(from the C math library) as the primitive operation.
 
-$"unm":$                                                           *lrv51-__unm*
+$"unm":$                                                           *__unm*
 --------
 the unary$-$operation.
 >
@@ -1242,7 +1242,7 @@ the unary$-$operation.
          end
        end
 >
-$"concat":$                                                     *lrv51-__concat*
+$"concat":$                                                     *__concat*
 -----------
 the$..$(concatenation) operation.
 >
@@ -1260,7 +1260,7 @@ the$..$(concatenation) operation.
          end
        end
 >
-$"len":$                                                         *lrv51-__len*
+$"len":$                                                         *__len*
 -----------
 the$#$operation.
 >
@@ -1280,7 +1280,7 @@ the$#$operation.
          end
        end
 >
-$"eq":$                                                             *lrv51-__eq*
+$"eq":$                                                             *__eq*
 -------
 the$==$operation.
 
@@ -1316,7 +1316,7 @@ The "eq" event is defined as follows:
 >
 $a ~= b$is equivalent to$not (a == b)$.
 
-$"lt":$                                                             *lrv51-__lt*
+$"lt":$                                                             *__lt*
 -------
 the$<$operation.
 >
@@ -1337,7 +1337,7 @@ the$<$operation.
 >
 $a > b$is equivalent to$b < a$.
 
-$"le":$                                                             *lrv51-__le*
+$"le":$                                                             *__le*
 -------
 the$<=$operation.
 >
@@ -1365,7 +1365,7 @@ $a >= b$is equivalent to$b <= a$. Note that, in the absence of a "le"
 metamethod, Lua tries the "lt", assuming that$a <= b$is equivalent
 to$not (b < a)$.
 
-$"index":$                                                       *lrv51-__index*
+$"index":$                                                       *__index*
 ----------
 The indexing access$table[key]$.
 >
@@ -1387,7 +1387,7 @@ The indexing access$table[key]$.
          else return h[key]          -- or repeat operation on it
        end
 >
-$"newindex":$                                                 *lrv51-__newindex*
+$"newindex":$                                                 *__newindex*
 -------------
 The indexing assignment$table[key] = value$.
 >
@@ -1409,7 +1409,7 @@ The indexing assignment$table[key] = value$.
          else h[key] = value             -- or repeat operation on it
        end
 >
-$"call":$                                                         *lrv51-__call*
+$"call":$                                                         *__call*
 ---------
 called when Lua calls a value.
 >
@@ -1507,7 +1507,7 @@ Finalizers allow you to coordinate Lua's garbage collection with external
 resource management (such as closing files, network or database connections,
 or freeing your own memory).
 
-                                                                    *lrv51-__gc*
+                                                                    *__gc*
 Garbage userdata with a field$__gc$in their metatables are not collected
 immediately by the garbage collector. Instead, Lua puts them in a list. After
 the collection, Lua does the equivalent of the following function for each
@@ -1535,7 +1535,7 @@ is ignored by the garbage collector. In other words, if the only references to
 an object are weak references, then the garbage collector will collect this
 object.
 
-                                                                  *lrv51-__mode*
+                                                                  *__mode*
 A weak table can have weak keys, weak values, or both. A table with weak keys
 allows the collection of its keys, but prevents the collection of its values.
 A table with both weak keys and weak values allows the collection of both keys
@@ -4139,7 +4139,7 @@ Receives an argument of any type and converts it to a string in a reasonable
 format. For complete control of how numbers are converted, use$string.format$
 (see |lrv51-string.format|).
 
-                                                              *lrv51-__tostring*
+                                                              *__tostring*
 If the metatable of$e$has a$"__tostring"$field,$tostring$calls the
 corresponding value with$e$as argument, and uses the result of the call as its
 result.
