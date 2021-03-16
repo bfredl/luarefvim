@@ -3287,7 +3287,7 @@ Here we list all functions and types from the auxiliary library in
 alphabetical order.
 
 
-$luaL_addchar$                                              *lrv51-luaL_addchar*
+$luaL_addchar$                                              *luaL_addchar*
 --------------
 >
     void luaL_addchar (luaL_Buffer *B, char c);
@@ -3295,7 +3295,7 @@ $luaL_addchar$                                              *lrv51-luaL_addchar*
 Adds the character$c$to the buffer$B$(see |lrv51-luaL_Buffer|).
 
 
-$luaL_addlstring$                                        *lrv51-luaL_addlstring*
+$luaL_addlstring$                                        *luaL_addlstring*
 -----------------
 >
     void luaL_addlstring (luaL_Buffer *B, const char *s, size_t l);
@@ -3304,7 +3304,7 @@ Adds the string pointed to by$s$with length$l$to the buffer$B$(see
 |lrv51-luaL_Buffer|). The string may contain embedded zeros.
 
 
-$luaL_addsize$                                              *lrv51-luaL_addsize*
+$luaL_addsize$                                              *luaL_addsize*
 --------------
 >
     void luaL_addsize (luaL_Buffer *B, size_t n);
@@ -3313,7 +3313,7 @@ Adds to the buffer$B$(see |lrv51-luaL_Buffer|) a string of length$n$previously
 copied to the buffer area (see |lrv51-luaL_prepbuffer|).
 
 
-$luaL_addstring$                                          *lrv51-luaL_addstring*
+$luaL_addstring$                                          *luaL_addstring*
 ----------------
 >
     void luaL_addstring (luaL_Buffer *B, const char *s);
@@ -3322,7 +3322,7 @@ Adds the zero-terminated string pointed to by$s$to the buffer$B$(see
 |lrv51-luaL_Buffer|). The string may not contain embedded zeros.
 
 
-$luaL_addvalue$                                            *lrv51-luaL_addvalue*
+$luaL_addvalue$                                            *luaL_addvalue*
 ---------------
 >
     void luaL_addvalue (luaL_Buffer *B);
@@ -3334,7 +3334,7 @@ This is the only function on string buffers that can (and must) be called with
 an extra element on the stack, which is the value to be added to the buffer.
 
 
-$luaL_argcheck$                                            *lrv51-luaL_argcheck*
+$luaL_argcheck$                                            *luaL_argcheck*
 ---------------
 >
     void luaL_argcheck (lua_State *L,
@@ -3348,7 +3348,7 @@ message, where$func$is retrieved from the call stack:
        bad argument #<narg> to <func> (<extramsg>)
 >
 
-$luaL_argerror$                                            *lrv51-luaL_argerror*
+$luaL_argerror$                                            *luaL_argerror*
 ---------------
 >
     int luaL_argerror (lua_State *L, int narg, const char *extramsg);
@@ -3362,7 +3362,7 @@ This function never returns, but it is an idiom to use it in C functions as
 $return luaL_argerror($@args@$)$.
 
 
-$luaL_Buffer$                                                *lrv51-luaL_Buffer*
+$luaL_Buffer$                                                *luaL_Buffer*
 -------------
 >
     typedef struct luaL_Buffer luaL_Buffer;
@@ -3391,7 +3391,7 @@ is back to its level when the buffer was initialized, plus the final string on
 its top.
 
 
-$luaL_buffinit$                                            *lrv51-luaL_buffinit*
+$luaL_buffinit$                                            *luaL_buffinit*
 ---------------
 >
     void luaL_buffinit (lua_State *L, luaL_Buffer *B);
@@ -3400,7 +3400,7 @@ Initializes a buffer$B$. This function does not allocate any space; the buffer
 must be declared as a variable (see |lrv51-luaL_Buffer|).
 
 
-$luaL_callmeta$                                            *lrv51-luaL_callmeta*
+$luaL_callmeta$                                            *luaL_callmeta*
 ---------------
 >
     int luaL_callmeta (lua_State *L, int obj, const char *e);
@@ -3414,7 +3414,7 @@ by the call. If there is no metatable or no metamethod, this function returns
 0 (without pushing any value on the stack).
 
 
-$luaL_checkany$                                            *lrv51-luaL_checkany*
+$luaL_checkany$                                            *luaL_checkany*
 ---------------
 >
     void luaL_checkany (lua_State *L, int narg);
@@ -3423,7 +3423,7 @@ Checks whether the function has an argument of any type (including#nil#) at
 position$narg$.
 
 
-$luaL_checkint$                                            *lrv51-luaL_checkint*
+$luaL_checkint$                                            *luaL_checkint*
 ---------------
 >
     int luaL_checkint (lua_State *L, int narg);
@@ -3432,7 +3432,7 @@ Checks whether the function argument$narg$is a number and returns this number
 cast to an$int$.
 
 
-$luaL_checkinteger$                                    *lrv51-luaL_checkinteger*
+$luaL_checkinteger$                                    *luaL_checkinteger*
 -------------------
 >
     lua_Integer luaL_checkinteger (lua_State *L, int narg);
@@ -3441,7 +3441,7 @@ Checks whether the function argument$narg$is a number and returns this number
 cast to a$lua_Integer$(see |lrv51-lua_Integer|).
 
 
-$luaL_checklong$                                          *lrv51-luaL_checklong*
+$luaL_checklong$                                          *luaL_checklong*
 ----------------
 >
     long luaL_checklong (lua_State *L, int narg);
@@ -3450,7 +3450,7 @@ Checks whether the function argument$narg$is a number and returns this number
 cast to a$long$.
 
 
-$luaL_checklstring$                                    *lrv51-luaL_checklstring*
+$luaL_checklstring$                                    *luaL_checklstring*
 -------------------
 >
     const char *luaL_checklstring (lua_State *L, int narg, size_t *l);
@@ -3459,7 +3459,7 @@ Checks whether the function argument$narg$is a string and returns this string;
 if$l$is not$NULL$fills$*l$with the string's length.
 
 
-$luaL_checknumber$                                      *lrv51-luaL_checknumber*
+$luaL_checknumber$                                      *luaL_checknumber*
 ------------------
 >
     lua_Number luaL_checknumber (lua_State *L, int narg);
@@ -3468,7 +3468,7 @@ Checks whether the function argument$narg$is a number and returns this number
 (see |lrv51-lua_Number|).
 
 
-$luaL_checkoption$                                      *lrv51-luaL_checkoption*
+$luaL_checkoption$                                      *luaL_checkoption*
 ------------------
 >
     int luaL_checkoption (lua_State *L,
@@ -3489,7 +3489,7 @@ convention in Lua libraries is to use strings instead of numbers to select
 options.)
 
 
-$luaL_checkstack$                                        *lrv51-luaL_checkstack*
+$luaL_checkstack$                                        *luaL_checkstack*
 -----------------
 >
     void luaL_checkstack (lua_State *L, int sz, const char *msg);
@@ -3499,7 +3499,7 @@ cannot grow to that size.$msg$is an additional text to go into the error
 message.
 
 
-$luaL_checkstring$                                      *lrv51-luaL_checkstring*
+$luaL_checkstring$                                      *luaL_checkstring*
 ------------------
 >
     const char *luaL_checkstring (lua_State *L, int narg);
@@ -3507,7 +3507,7 @@ $luaL_checkstring$                                      *lrv51-luaL_checkstring*
 Checks whether the function argument$narg$is a string and returns this string.
 
 
-$luaL_checktype$                                          *lrv51-luaL_checktype*
+$luaL_checktype$                                          *luaL_checktype*
 ----------------
 >
     void luaL_checktype (lua_State *L, int narg, int t);
@@ -3515,7 +3515,7 @@ $luaL_checktype$                                          *lrv51-luaL_checktype*
 Checks whether the function argument$narg$has type$t$(see |lrv51-lua_type|).
 
 
-$luaL_checkudata$                                        *lrv51-luaL_checkudata*
+$luaL_checkudata$                                        *luaL_checkudata*
 -----------------
 >
     void *luaL_checkudata (lua_State *L, int narg, const char *tname);
@@ -3524,7 +3524,7 @@ Checks whether the function argument$narg$is a userdata of the type$tname$
 (see |lrv51-luaL_newmetatable|).
 
 
-$luaL_dofile$                                                *lrv51-luaL_dofile*
+$luaL_dofile$                                                *luaL_dofile*
 -------------
 >
     int luaL_dofile (lua_State *L, const char *filename);
@@ -3536,7 +3536,7 @@ Loads and runs the given file. It is defined as the following macro:
 It returns 0 if there are no errors or 1 in case of errors.
 
 
-$luaL_dostring$                                            *lrv51-luaL_dostring*
+$luaL_dostring$                                            *luaL_dostring*
 ---------------
 >
     int luaL_dostring (lua_State *L, const char *str);
@@ -3548,7 +3548,7 @@ Loads and runs the given string. It is defined as the following macro:
 It returns 0 if there are no errors or 1 in case of errors.
 
 
-$luaL_error$                                                  *lrv51-luaL_error*
+$luaL_error$                                                  *luaL_error*
 ------------
 >
     int luaL_error (lua_State *L, const char *fmt, ...);
@@ -3563,7 +3563,7 @@ This function never returns, but it is an idiom to use it in C functions as
 $return luaL_error($@args@$)$.
 
 
-$luaL_getmetafield$                                    *lrv51-luaL_getmetafield*
+$luaL_getmetafield$                                    *luaL_getmetafield*
 -------------------
 >
     int luaL_getmetafield (lua_State *L, int obj, const char *e);
@@ -3573,7 +3573,7 @@ $obj$. If the object does not have a metatable, or if the metatable does not
 have this field, returns 0 and pushes nothing.
 
 
-$luaL_getmetatable$                                    *lrv51-luaL_getmetatable*
+$luaL_getmetatable$                                    *luaL_getmetatable*
 -------------------
 >
     void luaL_getmetatable (lua_State *L, const char *tname);
@@ -3582,7 +3582,7 @@ Pushes onto the stack the metatable associated with name$tname$in the registry
 (see |lrv51-luaL_newmetatable|).
 
 
-$luaL_gsub$                                                    *lrv51-luaL_gsub*
+$luaL_gsub$                                                    *luaL_gsub*
 -----------
 >
     const char *luaL_gsub (lua_State *L,
@@ -3594,7 +3594,7 @@ Creates a copy of string$s$by replacing any occurrence of the string$p$with
 the string$r$. Pushes the resulting string on the stack and returns it.
 
 
-$luaL_loadbuffer$                                        *lrv51-luaL_loadbuffer*
+$luaL_loadbuffer$                                        *luaL_loadbuffer*
 -----------------
 >
     int luaL_loadbuffer (lua_State *L,
@@ -3610,7 +3610,7 @@ This function returns the same results as$lua_load$.$name$is the chunk name,
 used for debug information and error messages.
 
 
-$luaL_loadfile$                                            *lrv51-luaL_loadfile*
+$luaL_loadfile$                                            *luaL_loadfile*
 ---------------
 >
     int luaL_loadfile (lua_State *L, const char *filename);
@@ -3626,7 +3626,7 @@ code$LUA_ERRFILE$if it cannot open/read the file.
 As$lua_load$, this function only loads the chunk; it does not run it.
 
 
-$luaL_loadstring$                                        *lrv51-luaL_loadstring*
+$luaL_loadstring$                                        *luaL_loadstring*
 -----------------
 >
     int luaL_loadstring (lua_State *L, const char *s);
@@ -3639,7 +3639,7 @@ This function returns the same results as$lua_load$.
 Also as$lua_load$, this function only loads the chunk; it does not run it.
 
 
-$luaL_newmetatable$                                    *lrv51-luaL_newmetatable*
+$luaL_newmetatable$                                    *luaL_newmetatable*
 -------------------
 >
     int luaL_newmetatable (lua_State *L, const char *tname);
@@ -3652,7 +3652,7 @@ In both cases pushes onto the stack the final value associated with$tname$in
 the registry.
 
 
-$luaL_newstate$                                            *lrv51-luaL_newstate*
+$luaL_newstate$                                            *luaL_newstate*
 ---------------
 >
     lua_State *luaL_newstate (void);
@@ -3665,7 +3665,7 @@ error output in case of fatal errors.
 Returns the new state, or$NULL$if there is a memory allocation error.
 
 
-$luaL_openlibs$                                            *lrv51-luaL_openlibs*
+$luaL_openlibs$                                            *luaL_openlibs*
 ---------------
 >
     void luaL_openlibs (lua_State *L);
@@ -3674,7 +3674,7 @@ Opens all standard Lua libraries into the given state. See also
 |lrv51-openlibs| for details on how to open individual libraries.
 
 
-$luaL_optint$                                                *lrv51-luaL_optint*
+$luaL_optint$                                                *luaL_optint*
 -------------
 >
     int luaL_optint (lua_State *L, int narg, int d);
@@ -3684,7 +3684,7 @@ $int$. If this argument is absent or is#nil#, returns$d$. Otherwise, raises an
 error.
 
 
-$luaL_optinteger$                                        *lrv51-luaL_optinteger*
+$luaL_optinteger$                                        *luaL_optinteger*
 -----------------
 >
     lua_Integer luaL_optinteger (lua_State *L,
@@ -3696,7 +3696,7 @@ $lua_Integer$(see |lrv51-lua_Integer|). If this argument is absent or is#nil#,
 returns$d$. Otherwise, raises an error.
 
 
-$luaL_optlong$                                              *lrv51-luaL_optlong*
+$luaL_optlong$                                              *luaL_optlong*
 --------------
 >
     long luaL_optlong (lua_State *L, int narg, long d);
@@ -3706,7 +3706,7 @@ $long$. If this argument is absent or is#nil#, returns$d$. Otherwise, raises
 an error.
 
 
-$luaL_optlstring$                                        *lrv51-luaL_optlstring*
+$luaL_optlstring$                                        *luaL_optlstring*
 -----------------
 >
     const char *luaL_optlstring (lua_State *L,
@@ -3720,7 +3720,7 @@ argument is absent or is#nil#, returns$d$. Otherwise, raises an error.
 If$l$is not$NULL$, fills the position$*l$with the results's length.
 
 
-$luaL_optnumber$                                          *lrv51-luaL_optnumber*
+$luaL_optnumber$                                          *luaL_optnumber*
 ----------------
 >
     lua_Number luaL_optnumber (lua_State *L, int narg, lua_Number d);
@@ -3729,7 +3729,7 @@ If the function argument$narg$is a number, returns this number. If this
 argument is absent or is#nil#, returns$d$. Otherwise, raises an error.
 
 
-$luaL_optstring$                                          *lrv51-luaL_optstring*
+$luaL_optstring$                                          *luaL_optstring*
 ----------------
 >
     const char *luaL_optstring (lua_State *L,
@@ -3740,7 +3740,7 @@ If the function argument$narg$is a string, returns this string. If this
 argument is absent or is#nil#, returns$d$. Otherwise, raises an error.
 
 
-$luaL_prepbuffer$                                        *lrv51-luaL_prepbuffer*
+$luaL_prepbuffer$                                        *luaL_prepbuffer*
 -----------------
 >
     char *luaL_prepbuffer (luaL_Buffer *B);
@@ -3751,7 +3751,7 @@ string into this space you must call$luaL_addsize$(see |lrv51-luaL_addsize|)
 with the size of the string to actually add it to the buffer.
 
 
-$luaL_pushresult$                                         *lrv51-luaL_pushresult*
+$luaL_pushresult$                                         *luaL_pushresult*
 -----------------
 >
     void luaL_pushresult (luaL_Buffer *B);
@@ -3759,7 +3759,7 @@ $luaL_pushresult$                                         *lrv51-luaL_pushresult
 Finishes the use of buffer$B$leaving the final string on the top of the stack.
 
 
-$luaL_ref$                                                       *lrv51-luaL_ref*
+$luaL_ref$                                                       *luaL_ref*
 ----------
 >
     int luaL_ref (lua_State *L, int t);
@@ -3778,7 +3778,7 @@ $LUA_REFNIL$. The constant$LUA_NOREF$is guaranteed to be different from any
 reference returned by$luaL_ref$.
 
 
-$luaL_Reg$                                                      *lrv51-luaL_Reg*
+$luaL_Reg$                                                      *luaL_Reg*
 ----------
 >
     typedef struct luaL_Reg {
@@ -3792,7 +3792,7 @@ function. Any array of$luaL_Reg$must end with a sentinel entry in which both
 $name$and$func$are$NULL$.
 
 
-$luaL_register$                                            *lrv51-luaL_register*
+$luaL_register$                                            *luaL_register*
 ---------------
 >
     void luaL_register (lua_State *L,
@@ -3813,7 +3813,7 @@ this table instead of creating a new one.
 In any case the function leaves the table on the top of the stack.
 
 
-$luaL_typename$                                            *lrv51-luaL_typename*
+$luaL_typename$                                            *luaL_typename*
 ---------------
 >
     const char *luaL_typename (lua_State *L, int idx);
@@ -3821,7 +3821,7 @@ $luaL_typename$                                            *lrv51-luaL_typename*
 Returns the name of the type of the value at index$idx$.
 
 
-$luaL_typerror$                                            *lrv51-luaL_typerror*
+$luaL_typerror$                                            *luaL_typerror*
 ---------------
 >
     int luaL_typerror (lua_State *L, int narg, const char *tname);
@@ -3834,7 +3834,7 @@ where@location@is produced by$luaL_where$ (see |lrv51-luaL_where|),@func@is the
 name of the current function, and@rt@is the type name of the actual argument.
 
 
-$luaL_unref$                                                  *lrv51-luaL_unref*
+$luaL_unref$                                                  *luaL_unref*
 ------------
 >
     void luaL_unref (lua_State *L, int t, int ref);
@@ -3846,7 +3846,7 @@ collected. The reference$ref$is also freed to be used again.
 If$ref$is$LUA_NOREF$or$LUA_REFNIL$,$luaL_unref$does nothing.
 
 
-$luaL_where$                                                  *lrv51-luaL_where*
+$luaL_where$                                                  *luaL_where*
 ------------
 >
     void luaL_where (lua_State *L, int lvl);
