@@ -1,19 +1,16 @@
 " luarefvim plugin
-" This is somewhat based on CRefVim
-" Maintainer: Luis Carvalho <lexcarvalho@gmail.com>
-" Last Change: Jun, 3, 2005
-" Version: 0.2
 
 " initial setup: avoid loading more than once
-if exists("loaded_luarefvim")
+if exists("g:loaded_luarefvim")
 	finish
 endif
-let loaded_luarefvim = 1
 
-" mappings:
-vmap <silent> <unique> <Leader>lr y:call <SID>LookUp('<c-r>"')<CR>
-nmap <silent> <unique> <Leader>lr  :call <SID>LookUp(expand("<cword>"))<CR>
-map <silent> <unique> <Leader>lc :help luaref<CR>
+" mappings: enabled by default
+if !exists("g:luarefvim_disable_keybindings")
+  vnoremap <silent> <unique> <Leader>lr y:call <SID>LookUp('<c-r>"')<CR>
+  nnoremap <silent> <unique> <Leader>lr  :call <SID>LookUp(expand("<cword>"))<CR>
+  noremap <silent> <unique> <Leader>lc :help luaref<CR>
+endif
 
 function <SID>LookUp(str)
 	if a:str == "--" "comment?
@@ -28,3 +25,4 @@ function <SID>LookUp(str)
 	endif
 endfunction
 
+let g:loaded_luarefvim = 1

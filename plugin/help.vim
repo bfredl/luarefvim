@@ -1,8 +1,4 @@
 " Help extensions for luarefvim
-" This is somewhat based on CRefVim
-" Maintainer: Luis Carvalho <lexcarvalho@gmail.com>
-" Last Change: May, 26, 2005
-" Version: 0.1
 
 " add three syntax classes: bold, emph (italic) and code -- similarly to html
 syn match helpIgnoreBold     "#[a-zA-Z0-9&()\`\'\"\-\+\*=\[\]\{\}\.,;: ]\+#" contains=helpMatchBold

@@ -1,5 +1,0 @@
-This is a mirror of http://www.vim.org/scripts/script.php?script_id=1291
-
-This a Vim help file containing references for Lua 5.0 and 5.1, and it is -- with a few exceptions and adaptations -- a copy of the Lua 5.0 and Lua 5.1 reference manuals. Lua is a lightweight script language; see http://www.lua.org .
-
-Similarly to CRefVim (from where a lot of ideas were drawn), you can easily search for references for words under the cursor, visually selected words, and manual contents.
