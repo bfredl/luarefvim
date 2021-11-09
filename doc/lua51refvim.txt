@@ -84,12 +84,9 @@
 
            6   LUA STAND-ALONE.....................|lrv51-LuaSA|
 
-           A   INDEX...............................|lrv51-index|
-           B   BIBLIOGRAPHY........................|lrv51-bibliography|
-           C   COPYRIGHT & LICENSES................|lrv51-copyright|
-           D   LUAREFVIM DOC.......................|lrv51-doc|
-           D.1  Installation.......................|lrv51-docInstall|
-           D.2  Usage..............................|lrv51-docUsage|
+           A   BIBLIOGRAPHY........................|lrv51-bibliography|
+           B   COPYRIGHT & LICENSES................|lrv51-copyright|
+           C   LUAREFVIM DOC.......................|lrv51-doc|
 
 
 ==============================================================================
@@ -235,8 +232,8 @@ prefixing them with$0x$. Examples of valid numerical constants are
 >
                                                                  *lrv51-comment*
 A@comment@starts with a double hyphen ($--$) anywhere outside a string. If the
-text immediately after$--$is not an opening long bracket, the comment is 
-a@short comment@, which runs until the end of the line. Otherwise, it is 
+text immediately after$--$is not an opening long bracket, the comment is
+a@short comment@, which runs until the end of the line. Otherwise, it is
 a@long comment@, which runs until the corresponding closing long bracket. Long
 comments are frequently used to disable code temporarily.
 
@@ -811,7 +808,7 @@ regular array, with non-nil values from 1 to a given$n$, its length is exactly
 that$n$, the index of its last value. If the array has "holes" (that
 is,#nil#values between other non-nil values), then$#t$may be any of the
 indices that directly precedes a#nil#value (that is, it may consider any
-such#nil#value as the end of the array). 
+such#nil#value as the end of the array).
 
 
 ------------------------------------------------------------------------------
@@ -1602,7 +1599,7 @@ As an example, consider the next code:
          print("foo", a)
          return coroutine.yield(2*a)
        end
-       
+
        co = coroutine.create(function (a,b)
              print("co-body", a, b)
              local r = foo1(a+1)
@@ -1611,7 +1608,7 @@ As an example, consider the next code:
              print("co-body", r, s)
              return b, "end"
        end)
- 
+
        print("main", coroutine.resume(co, 1, 10))
        print("main", coroutine.resume(co, "r"))
        print("main", coroutine.resume(co, "x", "y"))
@@ -3005,7 +3002,7 @@ function.$lua_getstack$(see |lrv51-lua_getstack|) fills only the private part
 of this structure, for later use. To fill the other fields of$lua_Debug$with
 useful information, call$lua_getinfo$(see |lrv51-lua_getinfo|).
 
-The fields of$lua_Debug$ have the following meaning: 
+The fields of$lua_Debug$ have the following meaning:
 
   #o#$source$: If the function was defined in a string, then$source$is that
       string. If the function was defined in a file, then$source$starts with a
@@ -4311,7 +4308,7 @@ this entry. In any case,$require$returns the final value of
 $package.loaded[modname]$.
 
 If there is any error loading or running the module, or if it cannot find any
-loader for the module, then$require$signals an error. 
+loader for the module, then$require$signals an error.
 
 
 $package.cpath$                                            *package.cpath*
@@ -4702,7 +4699,7 @@ all its functions inside the table$table$.
 Most functions in the table library assume that the table represents an array
 or a list. For those functions, when we talk about the "length" of a table we
 mean the result of the length operator.
- 
+
 
 $table.concat (table [, sep [, i [, j]]])$                  *table.concat*
 ------------------------------------------
@@ -4743,7 +4740,7 @@ $table.maxn (table)$                                          *table.maxn*
 --------------------
 Returns the largest positive numerical index of the given table, or zero if
 the table has no positive numerical indices. (To do its job this function does
-a linear traversal of the whole table.) 
+a linear traversal of the whole table.)
 
 
 $table.remove (table [, pos])$                              *table.remove*
@@ -5488,7 +5485,7 @@ machine. If$lua$is in your$PATH$, then
 >
  #!/usr/bin/env lua
 >
-is a more portable solution.) 
+is a more portable solution.)
 
 
 ==============================================================================
@@ -5555,63 +5552,12 @@ C  LUAREFVIM DOC               *lua51refvim* *lua51refvimdoc* *lrv51-help* *lrv5
 
 This is a Vim help file containing a reference for Lua 5.1, and it is -- with
 a few exceptions and adaptations -- a copy of the Lua 5.1 Reference Manual
-(see |lrv51-bibliography|). For usage information, refer to |lrv51-docUsage|; for
-instalation, refer to |lrv51-docInstall|.
-
-This manual is composed of three parts: this file,$lua51refvim.txt$, that is,
-the manual itself; a plugin file, $lua51refvim.vim$, defining key bindings; and
-a help file syntax extension, $help.vim$. See |lrv51-docInstall| for more
-information on these files. For copyright information, see |lrv51-copyright|.
+(see |lrv51-bibliography|).
 
 The main ideas and concepts on how to implement this reference were taken from
 Christian Habermann's CRefVim project
 ($http://www.vim.org/scripts/script.php?script_id=614$).
 
 
-==============================================================================
-C.1  Installation                                             *lrv51-docInstall*
-
-
-This reference consists of three files: the manual itself,$lua51refvim.txt$,
-a plugin file,$lua51refvim.vim$, to load key bindings, and a help file syntax
-extension$help.vim$. To install lua51refvim, copy these files to their
-respective locations:
-
-     +-----------------+----------------+
-     |# file          #|# location     #|
-     + ----------------+----------------+
-     |$ lua51refvim.txt $|$ doc          $|
-     |$ lua51refvim.vim $|$ plugin       $|
-     |$ help.vim      $|$ after/syntax $|
-     +-----------------+----------------+
-
-where #location# is relative to 'runtimepath', that is, $HOME/.vim for a local
-Un*x install or $HOME/vimfiles for a local Win32 install, for example.
-Finally, to generate the tags, change dir to$doc$above (where you installed
-$lua51refvim.txt$), start Vim, and issue$:helptags .$For more information on
-installing help files, call$:help add-local-help$.
-
-
-==============================================================================
-C.2  Usage                                                      *lrv51-docUsage*
-
-
-The usage is really simple, and similar to CRefVim:
-
-     +----------+--------------+----------------------------------------+
-     |#  edit  #|#    key     #|                                        |
-     |#  mode  #|#  sequence  #|#             action                   #|
-     +----------+--------------+----------------------------------------+
-     |@ normal @|  <Leader>lr  |  reference for word under cursor       |
-     |@ visual @|  <Leader>lr  |  reference for visually selected text  |
-     |$ any    $|  <Leader>lc  |  manual's table of contents            |
-     +----------+--------------+----------------------------------------+
-
-Since by default <Leader> is mapped to$'\'$, just pressing$\lc$would bring the
-table of contents, for example.$lr$stands for@(l)ua (r)eference@, while$lc$
-stands for@(l)ua (c)ontents@.
-
-
 ------------------------------------------------------------------------------
  vi:tw=78:ts=4:ft=help:norl:noai
-
